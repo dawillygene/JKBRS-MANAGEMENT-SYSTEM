@@ -30,8 +30,8 @@
                     <div class="position-relative d-flex align-items-center gap-2 site-brand">
                         <i class="ri-baidu-line fs-2 lh-1 text-danger"></i>
                         <div class="lh-1">
-                            <h5 class="fw-bold m-0 text-white">Pillarix</h5>
-                            <small class="text-white-50">Pet</small>
+                            <h5 class="fw-bold m-0 text-white">JKBRS INTERNATIONAL</h5>
+                            <small class="text-white-50">Jkbrs</small>
                         </div>
                         <a class="stretched-link" href="index.html"></a>
                     </div>
@@ -40,11 +40,11 @@
                             <li class="nav-item">
                                 <a class="nav-link active" aria-current="page" data-bs-toggle="offcanvas" href="#" role="button" aria-controls=""><i class="ri-apps-2-line"></i> All Demos</a>
                             </li>
-                            <li class="nav-item"><a class="nav-link" href="about-us.html">About</a></li>
-                            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
                         </ul>
                         <div class="d-flex align-items-center gap-4 ms-auto ms-lg-0 ps-4">
-                            <a href="#" class="link-danger d-none d-lg-block">(+123) 456 789</a>
+                            <a href="#" class="link-danger d-none d-lg-block">(+255) 753 185 543</a>
                             <a href="#" class="link-light d-none d-lg-block"><i class="ri-account-circle-line ri-lg"></i></a>
                             <a href="#" class="link-light"><i class="ri-shopping-bag-3-line ri-lg"></i></a>
                             <a href="#" class="link-light d-lg-none" data-bs-toggle="offcanvas" data-bs-target="#sidebar" aria-controls="sidebar"><i class="ri-menu-3-line ri-lg"></i></a>
@@ -52,12 +52,9 @@
                     </div>
                 </div>
             </nav>
-            <!-- Header -->
-          
+            <!-- Header -->          
 
             {{ $slot }}
-
-
 
 
         <!-- footer -->
@@ -75,9 +72,9 @@
                     <div class="col-lg-3 col-6">
                         <h5 class="fw-bold pb-3">Contacts</h5>
                         <ul class="list-unstyled d-grid gap-2 text-white-50">
-                            <li>Phone: +1800-964-152</li>
-                            <li>Fax: +1800-964-152</li>
-                            <li>Email: <a href="https://iamosahan.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="62071a030f120e0722050f030b0e4c010d0f">[email&#160;protected]</a></li>
+                            <li>Phone: (+255) 753 185 543 / 0742 700 700</li>
+                            <li>P.O.BOX: 32284 , Dar es saalam</li>
+                            <li>Email: <a href="#" class="__cf_email__">info@jkbrstanzania.co.tz</a></li>
                         </ul>
                     </div>
                     <div class="col-lg-2 col-12">
@@ -125,7 +122,7 @@
                 <div class="container">
                     <div class="row align-items-center justify-content-between">
                         <div class="col-auto">
-                            <p class="text-center text-muted m-0">Copyright © <a href="#" class="text-black">Pillarix</a> 2024</p>
+                            <p class="text-center text-muted m-0">Copyright © <a href="#" class="text-black">Jkbrs Interntional</a> 2024</p>
                         </div>
                         <div class="col-auto">
                             <div class="d-flex align-items-center gap-3 social-links">
