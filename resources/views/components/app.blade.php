@@ -38,10 +38,10 @@
                     <div class="collapse navbar-collapse">
                         <ul class="navbar-nav ms-auto gap-4 m-none">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" data-bs-toggle="offcanvas" href="#" role="button" aria-controls=""><i class="ri-apps-2-line"></i> All Demos</a>
+                                <a class="nav-link active" href="{{ route("home") }}"><i class="ri-apps-2-line"></i>Home</a>
                             </li>
-                            <li class="nav-item"><a class="nav-link" href="#">About</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{ route("about") }}">About</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{ route("contact") }}">Contact</a></li>
                         </ul>
                         <div class="d-flex align-items-center gap-4 ms-auto ms-lg-0 ps-4">
                             <a href="#" class="link-danger d-none d-lg-block">(+255) 753 185 543</a>
@@ -52,6 +52,7 @@
                     </div>
                 </div>
             </nav>
+            {{-- </div> --}}
             <!-- Header -->          
 
             {{ $slot }}
