@@ -1,4 +1,23 @@
 <x-app>
+
+    {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> --}}
+
+    {{-- <style>
+        .agency h3 {
+          font-size: 1.25rem;
+          font-weight: bold;
+        }
+        .agency p {
+          font-size: 1rem;
+          line-height: 1.5;
+        }
+        .contact-info a {
+          color: #007bff;
+        }
+        .contact-info a:hover {
+          text-decoration: underline;
+        }
+      </style> --}}
 {{-- </div> --}}
 <div class="container py-5">
     <div class="row g-4">
@@ -9,7 +28,7 @@
                     <h5 class="fw-bold">Ofisi Yetu</h5>
                     <p class="text-muted mb-0">
                         JKBRS Limited<br>
-                        Mwera Kigorofani, Zanzibar, Tanzania
+                      Ubungo Plaza,Dar es Salaam, Tanzania
                     </p>
                 </div>
             </div>
@@ -20,8 +39,8 @@
                 <div class="pt-2">
                     <h5 class="fw-bold">Anwani ya Barua Pepe</h5>
                     <p class="text-muted mb-0">
-                        <a href="mailto:info@jkbrs.com">info@jkbrs.com</a><br>
-                        <a href="mailto:support@jkbrs.com">support@jkbrs.com</a>
+                        <a href="mailto:info@jkbrstanzania.co.tz">info@jkbrstanzania.co.tz</a><br>
+                        <a href="mailto:support@jkbrstanzania.co.tz">support@jkbrstanzania.co.tz</a>
                     </p>
                 </div>
             </div>
@@ -44,8 +63,8 @@
                 <div class="pt-2">
                     <h5 class="fw-bold">Nambari ya Simu</h5>
                     <p class="text-muted mb-0">
-                        +255 24 123 4567<br>
-                        +255 789 654 321
+                        (+255) 742 700 700<br>
+                        (+255) 753 185 543 
                     </p>
                 </div>
             </div>
@@ -55,6 +74,124 @@
 
 
    </div>
+
+
+   <section class="py-5">
+    <div class="container py-5" data-aos="fade-up" data-aos-duration="1000">
+        <div class="row align-items-center g-54 g-md-5">
+        <h1 class="text-center mb-4">MAWAKALA YETU / OUR AGENCIES</h1>
+
+        <!-- Offices Section -->
+        <div class="section mb-5">
+            <h2 class="mb-3">MAOFISI YETU / OUR OFFICES</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title"><strong>OSM</strong></h5>
+                            <p class="card-text">Ubongo Plaza, Ground floor, near Akiba Bank.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title"><strong>Moshi</strong></h5>
+                            <p class="card-text">First floor, Room M58, located near the Main Bus Stand.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title"><strong>Arusha</strong></h5>
+                            <p class="card-text">First floor, at the fuel station.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Other Agencies Section -->
+        <div class="section mb-5" id="other-agencies">
+            <h2 class="mb-3">OUR AGENCIES IN OTHER CITIES</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">Morogoro</h5>
+                            <p class="card-text"><strong>Duka la Dawa Asili</strong><br>Located on Lumumba Road at the roundabout (Viace Bus Stand), next to Lake Oil fuel station.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">Mbeya</h5>
+                            <p class="card-text"><strong>Elegante Supermarket</strong><br>Situated at the Oilcom fuel station, Mafiati near Mwanjelwa junction.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">Tabora</h5>
+                            <p class="card-text"><strong>Mviombo Traders</strong><br>Located in the NSSF building.</p>
+                            <p class="card-text"><strong>Tabora Pharmacy</strong><br>On Lumumba Road.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Additional Locations Section -->
+        <div class="section mb-5" id="additional-locations">
+            <h2 class="mb-3">ADDITIONAL LOCATIONS</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">Shinyanga</h5>
+                            <p class="card-text"><strong>Masele Web Pharmacy</strong><br>NSSF building.</p>
+                            <p class="card-text"><strong>Rey Duka Dawa</strong><br>Kambarage Road, near HASS on the corner of Mbauda Road.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">Mwanza</h5>
+                            <p class="card-text"><strong>Miti Mirefu Road</strong><br>First floor, Room 3, before the Mohamed Trans bus office.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">Bukoba</h5>
+                            <p class="card-text"><strong>MK Pharmacy</strong><br>Jamhuri Road, near the main market.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Info Section -->
+        <div class="section" id="contact">
+            <h2 class="mb-3">CONTACT US FOR MORE INFORMATION</h2>
+            <p>For any inquiries or to learn more about our agencies, feel free to contact us:</p>
+            <ul class="contact-info list-unstyled">
+                <li><i class="fas fa-phone-alt"></i> <strong>Phone:</strong> 0742 700 700 / 0753 185 543</li>
+                <li><i class="fas fa-envelope"></i> <strong>Email:</strong> <a href="mailto:info@jkbtanzania.co.tz">info@jkbtanzania.co.tz</a></li>
+                <li><i class="fas fa-globe"></i> <strong>Website:</strong> <a href="http://www.jkbtanzania.co.tz" target="_blank">www.jkbtanzania.co.tz</a></li>
+            </ul>
+        </div>
+    </div>
+    </div>
+</section>
+
+
+
    {{--   </div> --}}
     <!-- Contact form -->
     <div class="py-5">
