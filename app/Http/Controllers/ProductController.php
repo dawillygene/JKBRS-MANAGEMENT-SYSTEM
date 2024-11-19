@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 use App\Models\Product;
 
 class ProductController extends Controller
@@ -12,7 +11,8 @@ class ProductController extends Controller
     public function index()
     {
 
-       $product = Product::all();
+        $product = Product::all();
+        dd($product);
         return view('products', compact('product'));
     }
 
@@ -54,8 +54,8 @@ class ProductController extends Controller
             'product_image' => $imagePath,
         ]);
 
-        echo "its done!";
+        // echo "its done!";
         // Redirect with success message
-        // return redirect()->back()->with('success', 'Product added successfully!');
+        return redirect()->back()->with('success', 'Product added successfully!');
     }
 }
