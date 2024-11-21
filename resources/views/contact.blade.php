@@ -1,24 +1,4 @@
 <x-app>
-
-    {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> --}}
-
-    {{-- <style>
-        .agency h3 {
-          font-size: 1.25rem;
-          font-weight: bold;
-        }
-        .agency p {
-          font-size: 1rem;
-          line-height: 1.5;
-        }
-        .contact-info a {
-          color: #007bff;
-        }
-        .contact-info a:hover {
-          text-decoration: underline;
-        }
-      </style> --}}
-{{-- </div> --}}
 <div class="container py-5">
     <div class="row g-4">
         <div class="col-lg-3 col-12">

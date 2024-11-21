@@ -2,25 +2,45 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Exception;
 use App\Models\Product;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
 
 class ProductController extends Controller
 {
     
     public function index()
     {
-
-        $product = Product::all();
-        dd($product);
+        $product = Product::all()->map(function ($product) {
+            $product->encrypted_id = Crypt::encryptString($product->id);
+            return $product;
+        });
+    
         return view('products', compact('product'));
     }
 
+    // public function show($encryptedId)
+    // {
+    //     $id = Product::decryptId($encryptedId);
+    //     $product = Product::findOrFail($id);
+    
+    //     return view('products.show', compact('product'));
+    // }
 
 
-    public function create()
+
+
+    public function show($encryptedId)
     {
-        return view('products.create');
+        $id = Product::decryptId($encryptedId);
+        $prod = Product::find($id);
+        if($prod){
+            return view('productdetail', compact('prod'));
+        }else{
+            abort(404);
+        }
+        
     }
 
     /**
@@ -28,8 +48,8 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request);
-        // Validate the incoming request data
+
+        try {
       $test =  $request->validate([
             'productName' => 'required|string|max:255',
             'productPrice' => 'required|numeric|min:0',
@@ -37,10 +57,9 @@ class ProductController extends Controller
             'productTitle' => 'required|string|max:255',
             'productCategory' => 'required|string',
             'stockQuantity' => 'required|integer|min:0',
-            'productImage' => 'required|image|max:2048', // Max size 2MB
+            'productImage' => 'required|image|max:2048', 
         ]);
 
-       
         $imagePath = $request->file('productImage')->store('products', 'public');
 
    
@@ -54,8 +73,16 @@ class ProductController extends Controller
             'product_image' => $imagePath,
         ]);
 
-        // echo "its done!";
-        // Redirect with success message
+        toast('Product added successfully!','success');
         return redirect()->back()->with('success', 'Product added successfully!');
+
+
+    }catch(Exception $exception){
+        toast('Validation Error: ','error');
+
+        return redirect()->back()->with('error', 'Validation Error: '. $exception->getMessage());
+    }
+       
+       
     }
 }

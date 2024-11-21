@@ -1,11 +1,34 @@
 <?php
 
+use App\Models\Article;
+use App\Models\Product;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ArticleController;
+use RealRashid\SweetAlert\Facades\Alert;
+
 
 Route::get('/', function () {
-    return view('index');
+
+    $product = Product::orderBy('created_at', 'asc')->take(6)->get()->map(function ($product) {
+        $product->encrypted_id = Crypt::encryptString($product->id);
+        return $product;
+    });
+
+    $articles = Article::latest()->take(10)->get(); 
+
+    $productnew = Product::orderBy('created_at', 'desc')->take(3)->get()->map(function ($product) {
+        $product->encrypted_id = Crypt::encryptString($product->id);
+        return $product;
+    });
+
+    return view('index',compact('product','productnew','articles'));
+
 })->name('home');
+
+
+
 
 Route::get('/about-us', function () {
     return view('about');
@@ -15,17 +38,28 @@ Route::get('/Contact-Us', function () {
     return view('contact');
 })->name('contact');
 
-// Route::get('/product', function () {
-//     return view('products');
-// })->name('product');
-
 
 Route::get('/admin/addproduct', function () {
     return view('admin.addproduct');
 })->name('admin.product');
 
+Route::get('/view', function () {
+    return view('productdetail');
+})->name('productdetail');
 
+
+
+Route::get('view/{id}',[ProductController::class,'show'])->name('productdetail');
 
 Route::get('/product', [ProductController::class, 'index'])->name('product');
 Route::get('/products/create', [ProductController::class, 'create'])->name('products.create');
 Route::post('/products/store', [ProductController::class, 'store'])->name('products.store');
+
+
+
+
+
+
+Route::get('/articles/create', [ArticleController::class, 'create'])->name('articles.create');
+Route::post('/articles', [ArticleController::class, 'store'])->name('articles.store');
+Route::get('/articles', [ArticleController::class, 'index'])->name('articles.index');

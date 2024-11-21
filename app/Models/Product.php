@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Crypt;
 
 class Product extends Model
 {
@@ -18,4 +19,20 @@ class Product extends Model
         'quantity_in_stock',
         'product_image',
     ];
+
+    /**
+     * Get the encrypted ID.
+     */
+    public function getEncryptedIdAttribute()
+    {
+        return Crypt::encryptString($this->id);
+    }
+
+    /**
+     * Decrypt the encrypted ID.
+     */
+    public static function decryptId($encryptedId)
+    {
+        return Crypt::decryptString($encryptedId);
+    }
 }

@@ -6,17 +6,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" href="" type="image/png">
         <title>{{ config('app.name' , 'jkbrs Interntional') }}</title>
-        
-
         <link rel="stylesheet" href="{{ asset("assets/css/bootstrap.min.css") }}">
         <link rel="stylesheet" href="{{ asset("assets/css/icofont.min.css") }}">
         <link rel="stylesheet" href="{{ asset("assets/css/aos.css") }}">
         <link rel="stylesheet" href="{{ asset("assets/css/remixicon.css") }}">
         <link rel="stylesheet" href="{{ asset("assets/css/style.css") }}">
         <link rel="stylesheet" href="{{ asset("assets/css/common.css") }}">
-
         @stack('css')
-
     </head>
     <body>
         <!-- Page loading spinner -->
@@ -56,14 +52,14 @@
                     </div>
                 </div>
             </nav>
-            {{-- </div> --}}
+        
                   
 
             {{ $slot }}
 
 
        <x-footer />
-    
+       @include('sweetalert::alert')
         @stack('scripts')
         <script data-cfasync="true" src="{{ asset("assets/js/email-decode.min.js") }}"></script>
         <script src="{{ asset("assets/js/bootstrap.bundle.min.js") }}"></script>

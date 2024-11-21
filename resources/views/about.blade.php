@@ -1,5 +1,9 @@
 <x-app>
 
+@push('css')
+
+@endpush
+
 </div>
 
 <div>

@@ -157,7 +157,7 @@ a:hover {
 
 /* About */
 .bg-new-products {
-	background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url(../img/bg-animal-products.jpg);
+	background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url(../img/background1.jpg);
 	background-position: top center;
 	background-repeat: no-repeat;
 	background-size: cover;
