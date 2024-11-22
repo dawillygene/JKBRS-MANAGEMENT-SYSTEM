@@ -1,4 +1,47 @@
 <x-app>
+</div>
+
+<style>
+/* .container {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+} */
+
+.card {
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card-title {
+    color: #007bff;
+    font-weight: bold;
+}
+
+.card-text {
+    color: #6c757d;
+}
+
+.section h2 {
+    color: #343a40;
+    margin-bottom: 20px;
+}
+
+.contact-info li {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.contact-info a {
+    color: #007</style>
+
+}
+
 <div class="container py-5">
     <div class="row g-4">
         <div class="col-lg-3 col-12">
@@ -60,8 +103,6 @@
     <div class="container py-5" data-aos="fade-up" data-aos-duration="1000">
         <div class="row align-items-center g-54 g-md-5">
         <h1 class="text-center mb-4">MAWAKALA YETU / OUR AGENCIES</h1>
-
-        <!-- Offices Section -->
         <div class="section mb-5">
             <h2 class="mb-3">MAOFISI YETU / OUR OFFICES</h2>
             <div class="row g-4">
@@ -91,8 +132,6 @@
                 </div>
             </div>
         </div>
-
-        <!-- Other Agencies Section -->
         <div class="section mb-5" id="other-agencies">
             <h2 class="mb-3">OUR AGENCIES IN OTHER CITIES</h2>
             <div class="row g-4">
@@ -123,8 +162,6 @@
                 </div>
             </div>
         </div>
-
-        <!-- Additional Locations Section -->
         <div class="section mb-5" id="additional-locations">
             <h2 class="mb-3">ADDITIONAL LOCATIONS</h2>
             <div class="row g-4">
@@ -145,6 +182,7 @@
                         </div>
                     </div>
                 </div>
+                
                 <div class="col-md-4">
                     <div class="card h-100 border-0 shadow-sm">
                         <div class="card-body">
@@ -153,10 +191,9 @@
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
-
-        <!-- Contact Info Section -->
         <div class="section" id="contact">
             <h2 class="mb-3">CONTACT US FOR MORE INFORMATION</h2>
             <p>For any inquiries or to learn more about our agencies, feel free to contact us:</p>
@@ -173,7 +210,7 @@
 
 
    {{--   </div> --}}
-    <!-- Contact form -->
+ 
     <div class="py-5">
         <div class="container py-5">
             <div class="row align-items-center g-54 g-md-5">
@@ -210,8 +247,6 @@
             </div>
         </div>
     </div>
-    
-    <!-- Newsletter Updates -->
     <div class="py-0 bg-warning-subtle">
         <div class="container">
             <div class="row">
