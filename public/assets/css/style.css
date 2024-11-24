@@ -60,11 +60,15 @@ a:hover {
 	margin: 0 0 -111px 0;
 }
 .bg-warning-subtle {
-	background-color: #ffcc01 !important;
+	background-color: #F5F5DC !important;
 }
 .bg-success {
-	background-color: #04c6d8 !important;
+	background-color: #2E8B57 !important;
 }
+.bg-setted {
+	background-color: #8b4513 !important;
+}
+
 .btn-lg {
 	padding: 11px 28px;
 	font-size: 18px;
@@ -101,10 +105,10 @@ a:hover {
 	color: #fff;
 }
 .bg-danger {
-	background: hsla(18, 99%, 48%, 1);
-	background: linear-gradient(135deg, hsla(18, 99%, 48%, 1) 0%, hsla(25, 100%, 50%, 1) 100%);
-	background: -moz-linear-gradient(135deg, hsla(18, 99%, 48%, 1) 0%, hsla(25, 100%, 50%, 1) 100%);
-	background: -webkit-linear-gradient(135deg, hsla(18, 99%, 48%, 1) 0%, hsla(25, 100%, 50%, 1) 100%);
+	background: #FFD700;
+	background:  #FFD700;;
+	background:  #FFD700;;
+	background:  #FFD700;;
 	filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#F54A01", endColorstr="#FF6A00", GradientType=1 );
 }
 .text-danger {
@@ -131,7 +135,7 @@ a:hover {
 
 /* Homepage */
 .homepage {
-	background-image: url(../img/bg.svg);
+	background-image: url(../img/123.jpg);
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;

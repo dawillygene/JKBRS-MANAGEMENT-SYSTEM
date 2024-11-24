@@ -1,5 +1,7 @@
 <x-app>
     </div>
+     
+    <div class="py-2"></div>
 
     <div class="container">
         <div class="row g-4 g-md-5">

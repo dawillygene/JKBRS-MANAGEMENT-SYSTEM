@@ -32,7 +32,7 @@
                             <h5 class="fw-bold m-0 text-white">JKBRS INTERNATIONAL</h5>
                             <small class="text-white-50">Jkbrs</small>
                         </div>
-                        <a class="stretched-link" href="index.html"></a>
+                        <a class="stretched-link" href="{{ route('home') }}"></a>
                     </div>
                     <div class="collapse navbar-collapse">
                         <ul class="navbar-nav ms-auto gap-4 m-none">

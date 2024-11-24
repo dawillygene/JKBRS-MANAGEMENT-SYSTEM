@@ -1,11 +1,5 @@
 <x-app>
-
-@push('css')
-
-@endpush
-
 </div>
-
 <div>
     <div class="container">
         <div class="row justify-content-center">
@@ -33,8 +27,6 @@
         </div>
     </div>
 </div>
-
-<!-- We are passionate -->
 <div class="py-5 bg-success">
     <div class="container py-4 text-center">
         <div class="row g-5">

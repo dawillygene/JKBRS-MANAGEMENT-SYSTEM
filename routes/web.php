@@ -2,11 +2,14 @@
 
 use App\Models\Article;
 use App\Models\Product;
+use App\Models\Location;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ProductController;
-use App\Http\Controllers\ArticleController;
 use RealRashid\SweetAlert\Facades\Alert;
+use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\LocationController;
+
 
 
 Route::get('/', function () {
@@ -35,7 +38,8 @@ Route::get('/about-us', function () {
 })->name('about');
 
 Route::get('/Contact-Us', function () {
-    return view('contact');
+$location = Location::all();
+    return view('contact',compact('location'));
 })->name('contact');
 
 
@@ -63,3 +67,8 @@ Route::post('/products/store', [ProductController::class, 'store'])->name('produ
 Route::get('/articles/create', [ArticleController::class, 'create'])->name('articles.create');
 Route::post('/articles', [ArticleController::class, 'store'])->name('articles.store');
 Route::get('/articles', [ArticleController::class, 'index'])->name('articles.index');
+
+
+
+
+Route::resource('locations', LocationController::class);
