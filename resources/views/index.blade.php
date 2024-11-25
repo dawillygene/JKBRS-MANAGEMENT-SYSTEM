@@ -1,70 +1,39 @@
 <x-app>
+    @push('css')
+        <style>
+            .text-white-50 {
+                color: rgba(255, 255, 255, 0.7);
+            }
 
-    <style>
-        .bg-success {
-            background-color: #4CAF50 !important;
-            /* Natural green color */
-        }
+            .btn-success {
+                background-color: #4CAF50;
+                border-color: #4CAF50;
+            }
 
-        .text-white-50 {
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        .btn-success {
-            background-color: #4CAF50;
-            border-color: #4CAF50;
-        }
-
-        .btn-success:hover {
-            background-color: #45A049;
-            border-color: #45A049;
-        }
-    </style>
-
-
-
-
-    {{-- <div class="py-0">
-        <div class="container">
-            <div class="row align-items-center g-4 pb-lg-5">
-                <div class="col-lg-6 col-12 pb-lg-5 pe-lg-5">
-                    <div class="text-white text-center text-md-start py-5" data-aos="fade-right" data-aos-duration="1000">
-                        <div class="mb-5">
-                            <h6 class="fw-light text-white-50 mb-0">NATURAL HERBAL SOLUTIONS</h6>
-                            <!-- Main Heading -->
-                            <h1 class="fw-bold display-2 py-2">Embrace Nature’s Power for Health</h1>
-                            <!-- Description -->
-                            <p class="lead pe-lg-5">Discover JKBRS’s range of herbal remedies, crafted from natural and
-                                organic materials to support wellness and healing naturally.</p>
-
-                        </div>
-                        <a href="#products" class="btn btn-success btn-lg rounded-pill">Discover Products</a>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-12 pb-lg-5">
-                    <img src="{{ asset('assets/img/product/banner.png') }}" alt="header-img"
-                        class="img-fluid d-block mx-auto" data-aos="fade-left" data-aos-duration="1000">
-                </div>
-            </div>
-        </div>
-    </div> --}}
+            .btn-success:hover {
+                background-color: #45A049;
+                border-color: #45A049;
+            }
+        </style>
+    @endpush
     <div class="py-0">
         <div class="container">
             <div class="row align-items-center g-4 pb-lg-5">
                 <div class="col-lg-6 col-12 pb-lg-5 pe-lg-5">
                     <div class="text-white text-center text-md-start py-5" data-aos="fade-right" data-aos-duration="1000">
                         <div class="mb-5">
-                            <h6 class="fw-light text-white-50 mb-0">SULUHU ZA KIASILI ZA MIMEA</h6>
+                            <h6 class="fw-bold mb-0" style="color: rgb(255, 255, 255); font-size: 1rem;">SULUHU ZA KIASILI
+                                ZA MIMEA</h6>
                             <h1 class="fw-bold display-2 py-2">Kumbatia Nguvu za Asili kwa Afya</h1>
                             <p class="lead pe-lg-5">Gundua bidhaa za JKBRS zilizotengenezwa kwa mimea na malighafi
                                 asilia ili kusaidia ustawi na uponyaji wa mwili kwa njia ya kiasili.</p>
                         </div>
-                        <a href="#products" class="btn btn-success btn-lg rounded-pill">Gundua Bidhaa</a>
+                        <a href="{{ route('product') }}" class="btn btn-light btn-lg rounded-pill">Gundua Bidhaa</a>
                     </div>
                 </div>
                 <div class="col-lg-6 col-12 pb-lg-5">
-                    <img src="{{ asset('assets/img/product/banner.png') }}" alt="Picha ya Kichwa"
-                        class="img-fluid d-block mx-auto" data-aos="fade-left" data-aos-duration="1000">
+                    {{-- <img src="{{ asset('assets/img/product/banner.png') }}" alt="Picha ya Kichwa"
+                        class="img-fluid d-block mx-auto" data-aos="fade-left" data-aos-duration="1000"> --}}
                 </div>
             </div>
         </div>
@@ -172,9 +141,6 @@
             </div>
         </div>
     </div>
-
-
-
     <div class="py-5">
         <div class="container py-4">
             <!-- Section Header -->
@@ -214,10 +180,9 @@
             </div>
         </div>
     </div>
-
     <div class="bg-new-products text-white py-5">
         <div class="container py-4">
-   
+
             <div data-aos="fade-up" data-aos-duration="500" class="row mb-5">
                 <div class="col-6 mx-auto">
                     <div class="text-center">
@@ -273,7 +238,7 @@
                         </div>
                     </div>
                 </div>
-            </div> 
+            </div>
         </div>
     </div>
     <div class="py-5 bg-light">
@@ -289,43 +254,31 @@
                 </div>
             </div>
             <div class="row g-4">
-                 @foreach ($articles as $article)
-        <div class="col-lg-3 col-md-6 col-12">
-            <div class="card bg-transparent border-0 rounded-5 zoom-img overflow-hidden" data-aos="zoom-in"
-                data-aos-duration="1000">
-                <a href="#" class="overflow-hidden rounded-5">
-                    <img src="{{ asset('storage/'. $article->image_path) }}" class="card-img-top rounded-5" alt="{{ $article->title }}">
-                </a>
-                <div class="card-body px-0">
-                    <a href="#">
-                        <h5 class="card-title fw-bold pb-2">{{ $article->title }}</h5>
-                    </a>
-                    <p class="card-text"><small class="text-secondary">{{ \Carbon\Carbon::parse($article->publish_date)->format('F d, Y') }}</small></p>
-                </div>
-            </div>
-        </div>
-    @endforeach
-                
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                @foreach ($articles as $article)
+                    <div class="col-lg-3 col-md-6 col-12">
+                        <div class="card bg-transparent border-0 rounded-5 zoom-img overflow-hidden"
+                            data-aos="zoom-in" data-aos-duration="1000">
+                            <a href="#" class="overflow-hidden rounded-5">
+                                <img src="{{ asset('storage/' . $article->image_path) }}"
+                                    class="card-img-top rounded-5" alt="{{ $article->title }}">
+                            </a>
+                            <div class="card-body px-0">
+                                <a href="#">
+                                    <h5 class="card-title fw-bold pb-2">{{ $article->title }}</h5>
+                                </a>
+                                <p class="card-text"><small
+                                        class="text-secondary">{{ \Carbon\Carbon::parse($article->publish_date)->format('F d, Y') }}</small>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
                 <div class="col-lg-3 col-md-6 col-12">
                     <div class="card bg-transparent border-0 rounded-5 zoom-img overflow-hidden" data-aos="zoom-in"
                         data-aos-duration="1000">
                         <a href="#" class="overflow-hidden rounded-5">
-                            <img src="{{ asset('assets/img/articles/herbal-benefits.jpg') }}"
-                                class="card-img-top rounded-5" alt="Faida za Tiba za Asili">
+                            <img src="{{ asset('assets/img/articles/spices.jpg') }}" class="card-img-top rounded-5"
+                                alt="Faida za Tiba za Asili">
                         </a>
                         <div class="card-body px-0">
                             <a href="#">
@@ -335,13 +288,12 @@
                         </div>
                     </div>
                 </div>
-                <!-- Article 2 -->
                 <div class="col-lg-3 col-md-6 col-12">
                     <div class="card bg-transparent border-0 rounded-5 zoom-img overflow-hidden" data-aos="zoom-in"
                         data-aos-duration="1000">
                         <a href="#" class="overflow-hidden rounded-5">
-                            <img src="{{ asset('assets/img/articles/hormonal-balance.jpg') }}"
-                                class="card-img-top rounded-5" alt="Usawa wa Homoni">
+                            <img src="{{ asset('assets/img/articles/spices.jpg') }}" class="card-img-top rounded-5"
+                                alt="Usawa wa Homoni">
                         </a>
                         <div class="card-body px-0">
                             <a href="#">
@@ -351,13 +303,12 @@
                         </div>
                     </div>
                 </div>
-                <!-- Article 3 -->
                 <div class="col-lg-3 col-md-6 col-12">
                     <div class="card bg-transparent border-0 rounded-5 zoom-img overflow-hidden" data-aos="zoom-in"
                         data-aos-duration="1000">
                         <a href="#" class="overflow-hidden rounded-5">
-                            <img src="{{ asset('assets/img/articles/immune-support.jpg') }}"
-                                class="card-img-top rounded-5" alt="Msaada kwa Kinga ya Mwili">
+                            <img src="{{ asset('assets/img/articles/spices.jpg') }}" class="card-img-top rounded-5"
+                                alt="Msaada kwa Kinga ya Mwili">
                         </a>
                         <div class="card-body px-0">
                             <a href="#">
@@ -368,13 +319,12 @@
                         </div>
                     </div>
                 </div>
-                <!-- Article 4 -->
                 <div class="col-lg-3 col-md-6 col-12">
                     <div class="card bg-transparent border-0 rounded-5 zoom-img overflow-hidden" data-aos="zoom-in"
                         data-aos-duration="1000">
                         <a href="#" class="overflow-hidden rounded-5">
-                            <img src="{{ asset('assets/img/articles/detox-benefits.jpg') }}"
-                                class="card-img-top rounded-5" alt="Faida za Detox">
+                            <img src="{{ asset('assets/img/articles/spices.jpg') }}" class="card-img-top rounded-5"
+                                alt="Faida za Detox">
                         </a>
                         <div class="card-body px-0">
                             <a href="#">
@@ -387,9 +337,6 @@
             </div>
         </div>
     </div>
-
-
-
     <div class="py-5">
         <div class="container py-4">
             <div data-aos="fade-up" data-aos-duration="500" class="row mb-5">
@@ -404,30 +351,30 @@
             </div>
             <div class="row g-4">
                 @foreach ($productnew as $prod)
-                <div class="col-lg-4 col-md-6 col-12">
-                    <div class="card bg-transparent border-0 rounded-0 text-center zoom-img" data-aos="zoom-in"
-                        data-aos-duration="1000">
-                        <div class="overflow-hidden rounded-5">
-                            <img src="{{ asset('storage/' . $prod->product_image) }}" alt="{{ $prod->product_name }}"
-                                class="card-img-top rounded-5" alt="Kinga ya Mwili">
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <div class="card bg-transparent border-0 rounded-0 text-center zoom-img" data-aos="zoom-in"
+                            data-aos-duration="1000">
+                            <div class="overflow-hidden rounded-5">
+                                <img src="{{ asset('storage/' . $prod->product_image) }}"
+                                    alt="{{ $prod->product_name }}" class="card-img-top rounded-5"
+                                    alt="Kinga ya Mwili">
+                            </div>
+                            <div class="card-body">
+                                <a href="#">
+                                    <h5 class="card-title fw-bold pb-2">{{ $prod->title }}</h5>
+                                </a>
+                                <p class="card-text fw-semibold text-success mb-1">{{ $prod->price }} Tsh</p>
+                                <small class="card-text">{{ $prod->description }}</small>
+                            </div>
+                            <div class="card-footer bg-transparent border-0"><a
+                                    href="{{ route('productdetail', $prod->encrypted_id) }}"
+                                    class="btn btn-success rounded-pill py-2 px-4">Read More</a></div>
                         </div>
-                        <div class="card-body">
-                            <a href="#">
-                                <h5 class="card-title fw-bold pb-2">{{ $prod->title }}</h5>
-                            </a>
-                            <p class="card-text fw-semibold text-success mb-1">{{ $prod->price }} Tsh</p>
-                            <small class="card-text">{{ $prod->description }}</small>
-                        </div>
-                        <div class="card-footer bg-transparent border-0"><a href="{{ route('productdetail', $prod->encrypted_id) }}"
-                                class="btn btn-success rounded-pill py-2 px-4">Read More</a></div>
                     </div>
-                </div>
-            @endforeach
+                @endforeach
             </div>
         </div>
     </div>
-
-    <!-- Newsletter Updates Section -->
     <div class="py-0 bg-light">
         <div class="container">
             <div class="row">
@@ -460,6 +407,4 @@
             </div>
         </div>
     </div>
-
-
 </x-app>

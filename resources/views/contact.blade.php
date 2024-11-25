@@ -4,7 +4,7 @@
     <style>
 
 body{
-background-color: beige;
+background-color: #B4BFA1;
  }
 
             .card {
@@ -43,7 +43,7 @@ background-color: beige;
  
     </style>
     <div class="container-fluid py-5" 
-     {{-- style="background: url('{{ asset('assets/img/background22.jpg') }}') no-repeat center center;  background-size: cover;" --}}
+     style="background:rgb(255, 255, 255);"
      >
         <div class="row g-4">
             <div class="col-lg-3 col-12">

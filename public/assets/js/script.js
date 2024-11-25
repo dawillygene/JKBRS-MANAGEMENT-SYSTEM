@@ -1,19 +1,3 @@
-/*
-Template Name: Pillarix - Multipurpose Website Template
-Author: Pillarix
-Author URI: https://wrapbootstrap.com/user/pillarix
-Version: 1.0
-*/
-/*
--- Page Loading
--- Count Down Date
--- Back To Top
--- AOS Animation 
--- Tooltip
--- Quantity Button
--- Portfolio Light Gallery
-*/
-
 (function($) {
     "use strict";
 
@@ -30,24 +14,7 @@ Version: 1.0
         removePreloader();
     });
 
-    // Count Down Date
-    var countDownDate = new Date("Jan 1, 2025 00:00:00").getTime();
-    var x = setInterval(function() {
-        var now = new Date().getTime();
-        var distance = countDownDate - now;
-        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-        document.getElementById("days").innerHTML = days;
-        document.getElementById("hours").innerHTML = hours;
-        document.getElementById("minutes").innerHTML = minutes;
-        document.getElementById("seconds").innerHTML = seconds;
-        if (distance < 0) {
-            clearInterval(x);
-            document.getElementById("countdown").innerHTML = "EXPIRED";
-        }
-    }, 1000);
+
 
     // Back To Top
     var backButton = document.createElement("button");
@@ -105,15 +72,6 @@ Version: 1.0
             let currentQuantity = parseInt(input.value, 10);
             input.value = currentQuantity + 1;
         }
-    });
-
-    // Portfolio Light Gallery
-    lightGallery(document.getElementById("customize-thumbnails-gallery"), {
-        plugins: [lgZoom, lgAutoplay, lgComment, lgFullscreen, lgHash, lgPager, lgRotate, lgShare, lgVideo],
-        addClass: "lg-custom-thumbnails",
-        appendThumbnailsTo: ".lg-outer",
-        animateThumb: false,
-        allowMediaOverlap: true,
     });
 
 })(window.jQuery);

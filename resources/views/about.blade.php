@@ -67,7 +67,7 @@
     <div class="container py-4">
         <div class="row mb-5">
             <div class="col-12">
-                <div class="bg-warning p-5 rounded-5">
+                <div class="p-5 rounded-5"  style="background-color: #9cc967">
                     <div class="row align-items-center g-4 mb-5 pb-4 mt-2">
                         <div class="col-lg-3 col-md-6 col-12">
                             <div class="text-center">
@@ -155,7 +155,7 @@
 </div>
 
 <!-- MEET OUR PET FAMILY -->
-<div class="py-5">
+{{-- <div class="py-5">
     <div class="container py-4">
         <div data-aos="fade-up" data-aos-duration="500" class="row mb-5">
             <div class="col-6 mx-auto">
@@ -210,10 +210,10 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 
 <!-- Get the best animal products -->
-<div class="bg-new-products py-5">
+{{-- <div class="bg-new-products py-5">
     <div class="container py-5">
         <div class="row">
             <div class="col-12">
@@ -234,9 +234,10 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 
 <!-- Popular articles about pets -->
+{{-- 
 <div class="py-5">
     <div class="container py-4">
         <div data-aos="fade-up" data-aos-duration="500" class="row mb-5">
@@ -289,7 +290,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 
 
 </x-app>

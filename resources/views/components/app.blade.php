@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="{{ asset("assets/css/bootstrap.min.css") }}">
         <link rel="stylesheet" href="{{ asset("assets/css/icofont.min.css") }}">
         <link rel="stylesheet" href="{{ asset("assets/css/aos.css") }}">
-        <link rel="stylesheet" href="{{ asset("assets/css/remixicon.css") }}">
+        <link rel="icon" href="{{ asset("assets/css/remixicon.css") }}">
         <link rel="stylesheet" href="{{ asset("assets/css/style.css") }}">
         <link rel="stylesheet" href="{{ asset("assets/css/common.css") }}">
         @stack('css')
@@ -25,10 +25,11 @@
         <div class="homepage">
             <!-- navbar -->
             <nav class="navbar osahan-main-nav navbar-expand pets-nav p-0">
-                <div class="container py-lg-0 py-3">
+                <div class="container-fluid bg-success py-lg-0 py-3">
                     <div class="position-relative d-flex align-items-center gap-2 site-brand">
                         <i class="ri-baidu-line fs-2 lh-1 text-danger"></i>
                         <div class="lh-1">
+                            {{-- <img src="{{ asset('assets/img/logo.jpeg') }}" width="20px" alt=""> --}}
                             <h5 class="fw-bold m-0 text-white">JKBRS INTERNATIONAL</h5>
                             <small class="text-white-50">Jkbrs</small>
                         </div>
@@ -44,7 +45,7 @@
                             <li class="nav-item"><a class="nav-link" href="{{ route("contact") }}">Contact</a></li>
                         </ul>
                         <div class="d-flex align-items-center gap-4 ms-auto ms-lg-0 ps-4">
-                            <a href="#" class="link-danger d-none d-lg-block">(+255) 753 185 543</a>
+                            <a href="#" class="link-light d-none d-lg-block">(+255) 753 185 543</a>
                             <a href="#" class="link-light d-none d-lg-block"><i class="ri-account-circle-line ri-lg"></i></a>
                             <a href="#" class="link-light"><i class="ri-shopping-bag-3-line ri-lg"></i></a>
                             <a href="#" class="link-light d-lg-none" data-bs-toggle="offcanvas" data-bs-target="#sidebar" aria-controls="sidebar"><i class="ri-menu-3-line ri-lg"></i></a>
