@@ -1,6 +1,8 @@
 <x-app>
     </div>
 
+
+@push('css')
     <style>
 
 body{
@@ -39,9 +41,7 @@ background-color: #B4BFA1;
             color: #007
         }
     </style>
-
- 
-    </style>
+    @endpush
     <div class="container-fluid py-5" 
      style="background:rgb(255, 255, 255);"
      >
@@ -96,11 +96,7 @@ background-color: #B4BFA1;
             </div>
         </div>
     </div>
-
-
     </div>
-
-
     <section class="py-5" style="background: #fffff">
         <div class="container py-2" data-aos="fade-up" data-aos-duration="1000">
             <div class="row align-items-center g-54 g-md-5">
@@ -230,7 +226,6 @@ background-color: #B4BFA1;
             </div>
         </div>
     </section>
-
     <div class="py-5">
         <div class="container py-5">
             <div class="row align-items-center g-54 g-md-5">
@@ -294,7 +289,7 @@ background-color: #B4BFA1;
                                 </div>
                             </div>
                             <div class="col-lg-5 col-12 d-none d-lg-block">
-                                <img src="img/newsletter.png" alt="newsletter-dog" class="img-fluid mt-n6">
+                             <img src="img/newsletter.png" alt="newsletter" class="img-fluid mt-n6">
                             </div>
                         </div>
                     </div>

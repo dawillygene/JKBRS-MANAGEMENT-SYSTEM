@@ -1,44 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Dashboard</title>
-    <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body class="bg-light">
+<x-app>
+</div>
 
-<!-- Sidebar -->
-<div class="d-flex">
-    <div class="bg-dark text-white p-3" style="width: 250px; height: 100vh;">
-        <h4 class="text-center">Dashboard</h4>
-        <ul class="nav flex-column">
-            <li class="nav-item">
-                <a class="nav-link text-white" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-white" href="#">Products</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-white" href="#">Categories</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-white" href="#">Orders</a>
-            </li>
-        </ul>
-    </div>
-
-    <!-- Main Content -->
-    <div class="flex-grow-1">
-        <!-- Header -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">{{ config('app.name','jkbrs') }}</a>
-            </div>
-        </nav>
-
-        <!-- Page Content -->
         <div class="container mt-4">
             <h2>Add Product</h2>
             <div class="card">
@@ -80,7 +42,6 @@
                             <input type="file" class="form-control" name="productImage" id="productImage" accept="image/*" required>
                         </div>
                         <input type="submit" name="" value="add product" id="">
-                        {{-- <button type="submit" class="btn btn-primary">Add Product</button> --}}
                     </form>                    
                 </div>
             </div>
@@ -88,14 +49,5 @@
     </div>
 </div>
 @include('sweetalert::alert')
-<!-- Bootstrap 5 JS Bundle -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-    // Example Form Submission Logic
-    // document.getElementById('productForm').addEventListener('submit', function (e) {
-    //     e.preventDefault();
-    //     alert('Product Added Successfully!');
-    // });
-</script>
-</body>
-</html>
+</x-app>
+

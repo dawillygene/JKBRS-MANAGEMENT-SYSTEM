@@ -5,8 +5,8 @@
                 <h5 class="fw-bold pb-3">Categories</h5>
                 <ul class="list-unstyled d-grid gap-2 text-white-50">
                     <li class="text-secondary-emphasis"><a href="#">Costumers</a> (5)</li>
-                    <li class="text-secondary-emphasis"><a href="#">Food</a> (3)</li>
-                    <li class="text-secondary-emphasis"><a href="#">Toys</a> (3)</li>
+                    <li class="text-secondary-emphasis"><a href="#">employee</a> (3)</li>
+                    <li class="text-secondary-emphasis"><a href="#">vandors</a> (3)</li>
                 </ul>
             </div>
             <div class="col-lg-3 col-6">

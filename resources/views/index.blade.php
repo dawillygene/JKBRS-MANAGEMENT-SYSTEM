@@ -273,67 +273,6 @@
                         </div>
                     </div>
                 @endforeach
-                <div class="col-lg-3 col-md-6 col-12">
-                    <div class="card bg-transparent border-0 rounded-5 zoom-img overflow-hidden" data-aos="zoom-in"
-                        data-aos-duration="1000">
-                        <a href="#" class="overflow-hidden rounded-5">
-                            <img src="{{ asset('assets/img/articles/spices.jpg') }}" class="card-img-top rounded-5"
-                                alt="Faida za Tiba za Asili">
-                        </a>
-                        <div class="card-body px-0">
-                            <a href="#">
-                                <h5 class="card-title fw-bold pb-2">Faida 10 za Juu za Tiba za Mimea</h5>
-                            </a>
-                            <p class="card-text"><small class="text-secondary">NOVEMBA 20, 2024</small></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-12">
-                    <div class="card bg-transparent border-0 rounded-5 zoom-img overflow-hidden" data-aos="zoom-in"
-                        data-aos-duration="1000">
-                        <a href="#" class="overflow-hidden rounded-5">
-                            <img src="{{ asset('assets/img/articles/spices.jpg') }}" class="card-img-top rounded-5"
-                                alt="Usawa wa Homoni">
-                        </a>
-                        <div class="card-body px-0">
-                            <a href="#">
-                                <h5 class="card-title fw-bold pb-2">Kufikia Usawa wa Homoni Kiasili</h5>
-                            </a>
-                            <p class="card-text"><small class="text-secondary">NOVEMBA 12, 2024</small></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-12">
-                    <div class="card bg-transparent border-0 rounded-5 zoom-img overflow-hidden" data-aos="zoom-in"
-                        data-aos-duration="1000">
-                        <a href="#" class="overflow-hidden rounded-5">
-                            <img src="{{ asset('assets/img/articles/spices.jpg') }}" class="card-img-top rounded-5"
-                                alt="Msaada kwa Kinga ya Mwili">
-                        </a>
-                        <div class="card-body px-0">
-                            <a href="#">
-                                <h5 class="card-title fw-bold pb-2">Jinsi Virutubisho vya Mimea Vinavyosaidia Kinga
-                                </h5>
-                            </a>
-                            <p class="card-text"><small class="text-secondary">NOVEMBA 5, 2024</small></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-12">
-                    <div class="card bg-transparent border-0 rounded-5 zoom-img overflow-hidden" data-aos="zoom-in"
-                        data-aos-duration="1000">
-                        <a href="#" class="overflow-hidden rounded-5">
-                            <img src="{{ asset('assets/img/articles/spices.jpg') }}" class="card-img-top rounded-5"
-                                alt="Faida za Detox">
-                        </a>
-                        <div class="card-body px-0">
-                            <a href="#">
-                                <h5 class="card-title fw-bold pb-2">Nguvu ya Detox: Kusafisha Mwili Kiasili</h5>
-                            </a>
-                            <p class="card-text"><small class="text-secondary">OKTOBA 28, 2024</small></p>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
