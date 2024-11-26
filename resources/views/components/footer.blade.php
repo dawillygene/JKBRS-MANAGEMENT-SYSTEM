@@ -1,5 +1,4 @@
-
-<footer class="bg-footer text-white">
+<footer class="bg-success text-white">
     <div class="container py-5 top-footer">
         <div class="row g-4 py-4">
             <div class="col-lg-3">
@@ -15,7 +14,7 @@
                 <ul class="list-unstyled d-grid gap-2 text-white-50">
                     <li>Phone: (+255) 753 185 543 / 0742 700 700</li>
                     <li>P.O.BOX: 32284 , Dar es saalam</li>
-                    <li>Email: <a href="#" class="__cf_email__">info@jkbrstanzania.co.tz</a></li>
+                    <li>Email: <a href="#" class="_cf_email_">info@jkbrstanzania.co.tz</a></li>
                 </ul>
             </div>
             <div class="col-lg-2 col-12">
