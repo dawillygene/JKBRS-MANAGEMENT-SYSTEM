@@ -1,22 +1,6 @@
-/*
-Template Name: Pillarix - Multipurpose Website Template
-Author: Pillarix
-Author URI: https://wrapbootstrap.com/user/pillarix
-Version: 1.0
-*/
-/*
--- Body
--- Custom Classes 
--- Homepage
--- About 
--- Footer
--- Footer
--- Mobile Media
-*/
 
 @import url('https://fonts.googleapis.com/css2?family=Onest:wght@100;200;300;400;500;600;700&amp;family=Unbounded:wght@200;300;400;500;600&amp;display=swap');
 
-/* Body */
 body {
 	font-family: 'Onest', sans-serif;
 }
@@ -64,6 +48,15 @@ a:hover {
 }
 .bg-success {
 	background-color: #2E8B57 !important;
+}
+.bg-success-gradient {
+	background: linear-gradient(
+        135deg,
+        #198754 0%,
+        #25a065 25%,
+        #989c97 75%,
+        #bebbb8 100%
+    );
 }
 .bg-setted {
 	background-color: #8b4513 !important;
