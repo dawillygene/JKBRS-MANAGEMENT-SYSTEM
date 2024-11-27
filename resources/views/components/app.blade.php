@@ -12,6 +12,7 @@
         <link rel="stylesheet" href="{{ asset('assets/css/remixicon.css') }}">
         <link rel="stylesheet" href="{{ asset("assets/css/style.css") }}">
         <link rel="stylesheet" href="{{ asset("assets/css/common.css") }}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.5.0/remixicon.css">
         <style>
 .navbar-nav .nav-link {
     color: rgba(255, 255, 255, 0.9) !important;
