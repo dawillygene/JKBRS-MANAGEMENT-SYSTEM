@@ -180,7 +180,7 @@
             </div>
         </div>
     </div>
-    <div class="bg-new-products text-white py-5">
+    <div class="bg-success text-white py-5">
         <div class="container py-4">
 
             <div data-aos="fade-up" data-aos-duration="500" class="row mb-5">
@@ -204,7 +204,7 @@
                                 afya njema zaidi na mwili wangu kuwa sawa. Uzoefu wa kubadilisha maisha kabisa!"</p>
                         </div>
                         <div class="card-footer bg-transparent border-0">
-                            <p class="text-success mb-0">Maria N., Dar es Salaam</p>
+                            <p class="text-light mb-0">Maria N., Dar es Salaam</p>
                         </div>
                     </div>
                 </div>
@@ -219,7 +219,7 @@
                                 sana kwa suluhisho hili la mimea linalotegemewa!"</p>
                         </div>
                         <div class="card-footer bg-transparent border-0">
-                            <p class="text-success mb-0">John D., Arusha</p>
+                            <p class="text-light mb-0">John D., Arusha</p>
                         </div>
                     </div>
                 </div>
@@ -234,7 +234,7 @@
                                 sana. Ninapendekeza sana bidhaa za JKBRS!"</p>
                         </div>
                         <div class="card-footer bg-transparent border-0">
-                            <p class="text-success mb-0">Fatma H., Zanzibar</p>
+                            <p class="text-light mb-0">Fatma H., Zanzibar</p>
                         </div>
                     </div>
                 </div>
@@ -328,7 +328,7 @@
                                             afya, na faida za uponyaji wa asili.</p>
                                     </div>
                                     <form class="d-grid d-md-flex gap-3">
-                                        <input class="form-control rounded-pill py-3 px-4 shadow-none border-0"
+                                        <input class="form-control rounded-pill py-3 px-4 shadow border-0"
                                             type="text" placeholder="Barua pepe" aria-label="email">
                                         <button class="btn btn-success rounded-pill py-2 px-5">Jiandikishe</button>
                                     </form>

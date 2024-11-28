@@ -105,7 +105,7 @@ background-color: #B4BFA1;
             <div class="section mb-5">
                 <h2 class="mb-3 text-success">MAOFISI YETU / OUR OFFICES</h2>
                 <div class="row g-4">
-                    <div class="col-lg-6 col-md-4">
+                    <div class="col-md-4">
                         <div class="card h-100 border border-0 shadow-sm bg-success-gradient">
                             <div class="card-body">
                                 <h5 class="card-title text-light"><strong>DSM</strong></h5>
@@ -113,7 +113,7 @@ background-color: #B4BFA1;
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-6 col-md-4">
+                    <div class="col-md-4">
                         <div class="card h-100 border border-0 shadow-sm bg-success-gradient">
                             <div class="card-body">
                                 <h5 class="card-title text-light"><strong>Moshi</strong></h5>
@@ -121,7 +121,7 @@ background-color: #B4BFA1;
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-6 col-md-4">
+                    <div class="col-md-4">
                         <div class="card h-100 border border-0 shadow-sm bg-success-gradient">
                             <div class="card-body">
                                 <h5 class="card-title text-light"><strong>Arusha</strong></h5>
@@ -129,7 +129,7 @@ background-color: #B4BFA1;
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-6 col-md-4">
+                    <div class="col-md-4">
                         <div class="card h-100 border border-0 shadow-sm bg-success-gradient">
                             <div class="card-body">
                                 <h5 class="card-title text-light"><strong>MWANZA</strong></h5>
