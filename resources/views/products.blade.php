@@ -17,7 +17,7 @@
                             <a href="#">
                                 <h5 class="card-title fw-bold pb-2">{{ $prod->title }}</h5>
                             </a>
-                            <p class="card-text fw-semibold text-success mb-1">{{ $prod->price }} Tsh</p>
+                            <p class="card-text fw-semibold text-success mb-1">{{ number_format($prod->price) }} Tsh</p>
                             <small class="card-text">{{ $prod->description }}</small>
                         </div>
                         <div class="card-footer bg-transparent border-0"><a href="{{ route('productdetail', $prod->encrypted_id) }}"

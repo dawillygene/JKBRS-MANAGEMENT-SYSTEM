@@ -65,7 +65,9 @@
             <nav class="navbar osahan-main-nav navbar-expand-lg pets-nav p-0">
                 <div class="container-fluid bg-success py-lg-0 py-3">
                     <div class="position-relative d-flex align-items-center gap-2 site-brand">
-                        <i class="ri-baidu-line fs-2 lh-1 text-danger"></i>
+                        {{-- <i class="ri-badu-line fs-2 lh-1 text-danger">
+                            <img src="{{ asset("assets/img/logo.jpeg") }}"  style="width: 20%; margin:0%; padding:0%; "  alt="">
+                        </i> --}}
                         <div class="lh-1">
                             <h5 class="fw-bold m-0 text-white">JKBRS INTERNATIONAL</h5>
                             <small class="text-white-50">Jkbrs</small>
@@ -83,30 +85,27 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-white" href="{{ route('product') }}">Products</a>
+                                <a class="nav-link text-white" href="{{ route('product') }}">
+                                    <i class="ri-shopping-bag-3-line"></i>
+                                    Products</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-white" href="{{ route('about') }}">About</a>
+                                <a class="nav-link text-white" href="{{ route('about') }}">
+                                    <i class="ri-map-pin-user-line"></i>About</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-white" href="{{ route('contact') }}">Contact</a>
+                                <a class="nav-link text-white" href="{{ route('contact') }}">
+                                    <i class="ri-contacts-line"></i>Contact</a>
                             </li>
                         </ul>
                         <div class="d-flex align-items-center gap-4 ms-auto ms-lg-0 ps-4">
                             <a href="tel:+255753185543" class="link-light d-none d-lg-block">
                                 (+255) 753 185 543
                             </a>
-                            <a href="#" class="link-light d-none d-lg-block">
-                                <i class="ri-account-circle-line ri-lg"></i>
-                            </a>
-                            <a href="#" class="link-light">
-                                <i class="ri-shopping-bag-3-line ri-lg"></i>
-                            </a>
                         </div>
                     </div>
                 </div>
             </nav>
-            
             <div class="offcanvas offcanvas-end" tabindex="-1" id="sidebar" aria-labelledby="sidebarLabel">
                 <div class="offcanvas-header bg-success">
                     <h5 class="offcanvas-title text-white" id="sidebarLabel">Menu</h5>
@@ -135,14 +134,7 @@
                         </li>
                     </ul>
                 </div>
-            </div>
-            
-            @if (Route::currentRouteName() === 'home')
-            <div class="navbar osahan-main-nav navbar-expand pets-nav p-0 mb-0">
-                <img src="{{ asset('assets/img/head-bgi.png') }}" alt="">
-            </div>
-        @endif
-        
+            </div>    
 </div>           
 
             {{ $slot }}

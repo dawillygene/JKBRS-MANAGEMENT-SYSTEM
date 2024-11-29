@@ -132,7 +132,7 @@ text-color {
                     <div class="price-area my-4">
                         <p class="old-price mb-1"><del>{{ $prod->price }} </del> <span class="old-price-discount text-danger">(20% off)</span></p>
                         <p class="new-price text-bold mb-1">{{ $prod->price }} </p>
-                        <p class="text-secondary mb-1">(Additional tax may apply on checkout)</p>
+                        <p class="text-secondary mb-1">(Kodi ya ziada inaweza kutumika wakati wa malipo)</p>
 
                     </div>
 
@@ -165,8 +165,8 @@ text-color {
                         <i class="fa-brands fa-rocketchat questions-icon"></i>
                     </div>
                     <div class="col-md-11 text">
-                        Have a question about our products at E-Store? Feel free to contact our representatives via live chat or email.
-                    </div>
+                        Una swali kuhusu bidhaa zetu kwenye E-Store? Usisite kuwasiliana na wawakilishi wetu kupitia mazungumzo ya moja kwa moja au barua pepe.
+                    </div>                    
                 </div>
 
                 {{-- <div class="delivery my-4">
