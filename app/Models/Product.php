@@ -35,4 +35,10 @@ class Product extends Model
     {
         return Crypt::decryptString($encryptedId);
     }
+
+    public static function decrypt($encryptedId)
+    {
+        return Crypt::decrypt($encryptedId);
+    }
+
 }

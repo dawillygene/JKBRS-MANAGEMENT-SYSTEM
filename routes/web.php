@@ -61,9 +61,15 @@ Route::post('/products/store', [ProductController::class, 'store'])->name('produ
 
 
 
-Route::get('/articles/create', [ArticleController::class, 'create'])->name('articles.create');
+
 Route::post('/articles', [ArticleController::class, 'store'])->name('articles.store');
-Route::get('/articles', [ArticleController::class, 'index'])->name('articles.index');
+Route::get('/articles/create', [ArticleController::class, 'index'])->name('articles.create');
+Route::get('/articles/articles-list', [ArticleController::class, 'getArticle'])->name('articles.getArticle');
+Route::delete("/articles/delete-article/{id}",[ArticleController::class,'destroy'])->name('article.delete');
+Route::get("/articles/{encrypted_id}/edit",[ArticleController::class,'edit'])->name('articles.edit');
+Route::put("/articles/{encrypted_id}/update",[ArticleController::class,'update'])->name('articles.update');
+
+
 
 
 

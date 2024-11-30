@@ -185,6 +185,28 @@
                                 </a> </li> --}}
                         </ul>
                     </li>
+                    <li class="nav-item"> <a href="#" class="nav-link"> <i class="nav-icon bi bi-box-seam-fill"></i>
+                        <p>
+                        Articles
+                            <i class="nav-arrow bi bi-chevron-right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('articles.create') }}" class="nav-link {{ Route::is('articles.create') ? 'active' : '' }}">
+                                <i class="nav-icon bi bi-circle"></i>
+                                <p>add article</p>
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item"> <a href="{{ route('articles.getArticle') }}" class="nav-link"> <i class="nav-icon bi bi-circle"></i>
+                                <p>List all articles</p>
+                            </a> </li>
+                        {{-- <li class="nav-item"> <a href="../widgets/cards.html" class="nav-link"> <i class="nav-icon bi bi-circle"></i>
+                                <p>Cards</p>
+                            </a> </li> --}}
+                    </ul>
+                </li>
                         <li class="nav-header">EXAMPLES</li>
                         <li class="nav-item"> <a href="#" class="nav-link"> <i
                                     class="nav-icon bi bi-circle text-info"></i>

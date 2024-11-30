@@ -1,8 +1,9 @@
 <?php
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Article extends Model
 {
@@ -14,4 +15,12 @@ class Article extends Model
         'description',
         'publish_date',
     ];
+
+
+    public static function decrypt($encryptedId)
+    {
+        return Crypt::decrypt($encryptedId);
+    }
+
+
 }
