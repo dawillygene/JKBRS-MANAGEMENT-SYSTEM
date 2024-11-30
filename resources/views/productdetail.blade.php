@@ -96,11 +96,7 @@ text-color {
     color: #0093c4;
 }
 
-
-/* Small devices (landscape phones, less than 768px) */
 @media (max-width: 767.98px) {
-
-    /* Make preview images responsive  */
     .previews img {
         width: 100%;
         height: auto;

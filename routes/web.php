@@ -43,9 +43,6 @@ $location = Location::all();
 })->name('contact');
 
 
-Route::get('/admin/addproduct', function () {
-    return view('admin.addproduct');
-})->name('admin.product');
 
 Route::get('/view', function () {
     return view('productdetail');
@@ -72,3 +69,24 @@ Route::get('/articles', [ArticleController::class, 'index'])->name('articles.ind
 
 
 Route::resource('locations', LocationController::class);
+
+
+
+
+
+
+
+
+Route::get('/admin/addproduct', function () {
+    return view('admin.addproduct');
+})->name('admin.addproduct');
+
+
+Route::get("/admin/products-list",[ProductController::class,'adminIndex'])->name('admin.productslist');
+Route::get("/admin/{encrypted_id}/edit-product",[ProductController::class,'edit'])->name('admin.editproduct');
+Route::PUT("/admin/update-product/{id}",[ProductController::class,'update'])->name('products.update');
+Route::delete("/admin/delete-product/{id}",[ProductController::class,'destroy'])->name('products.delete');
+
+
+
+

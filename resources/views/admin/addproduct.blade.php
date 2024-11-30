@@ -1,53 +1,56 @@
-<x-app>
-</div>
+<x-admin>
+<x-slot:heading>
+    Add products
+</x-slot:heading>
 
-        <div class="container mt-4">
-            <h2>Add Product</h2>
-            <div class="card">
-                <div class="card-body">
-                    <form id="productForm" action="{{ route("products.store") }}" enctype="multipart/form-data" method="POST" >
-                        @csrf
-                        @method('POST')
-                        <div class="mb-3">
-                            <label for="productName" class="form-label">Product Name</label>
-                            <input type="text" class="form-control" name="productName" id="productName" placeholder="Enter product name" required>
+
+    <div class="app-content">
+        <div class="container-fluid">
+            <div class="row g-4">
+                <div class="col-md-12">
+                    <div class="card card-info card-outline mb-4">
+                        <div class="card-header">
+                            <div class="card-title">Add products    : </div>
                         </div>
-                        <div class="mb-3">
-                            <label for="productPrice" class="form-label">Price</label>
-                            <input type="number" class="form-control" name="productPrice" id="productPrice" placeholder="Enter price" min="0" step="0.01" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="productDescription" class="form-label">Description</label>
-                            <textarea class="form-control" id="productDescription" name="productDescription" rows="3" placeholder="Enter product description" required></textarea>
-                        </div>
-                        <div class="mb-3">
-                            <label for="productTitle" class="form-label">Title</label>
-                            <input type="text" class="form-control" name="productTitle" id="productTitle" placeholder="Enter product title" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="productCategory" class="form-label">Category</label>
-                            <select class="form-select" id="productCategory" name="productCategory" required>
-                                <option value="">Select a category</option>
-                                <option value="Electronics">Electronics</option>
-                                <option value="Clothing">Clothing</option>
-                                <option value="Home">Home</option>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <label for="stockQuantity" class="form-label">Stock Quantity</label>
-                            <input type="number" class="form-control" id="stockQuantity" name="stockQuantity" placeholder="Enter stock quantity" min="0" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="productImage" class="form-label">Product Image</label>
-                            <input type="file" class="form-control" name="productImage" id="productImage" accept="image/*" required>
-                        </div>
-                        <input type="submit" name="" value="add product" id="">
-                    </form>                    
-                </div>
-            </div>
+                        <form class="needs-validation" id="productForm" action="{{ route('products.store') }}"
+                            enctype="multipart/form-data" method="POST" novalidate>
+                            @csrf
+                            @method('POST')
+                            <div class="card-body">
+                                <div class="row g-3">
+                                    <div class="col-md-6"> <label for="validationCustom01" class="form-label">Product
+                                            Name</label> <input type="text" name="productName" class="form-control"
+                                           required>
+                                    </div>
+                                    <div class="col-md-6"> <label for="validationCustom03"
+                                            class="form-label">Title</label> <input type="text" name="productTitle"
+                                            class="form-control"  required>
+                                    </div>
+                                    <div class="col-md-6"> <label for="validationCustom02"
+                                            class="form-label">Price</label> <input type="number" name="productPrice"
+                                            class="form-control"  required>
+                                    </div>
+                                    <div class="col-md-6"> <label for="validationCustom04" class="form-label">Product
+                                            Image</label> <input type="file" class="form-control" name="productImage"
+                                            id="productImage" accept="image/*" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-12"> <label for="validationCustomUsername"
+                                        class="form-label">Description</label>
+                                    <div class="input-group has-validation">
+                                        <textarea class="form-control" id="productDescription" name="productDescription" rows="3"
+                                            placeholder="Enter product description" required></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                           
+                            <div class="card-footer"> <input type="submit" name="save"  class="btn btn-info col-md-12"  value="save product"> </div>
+                           
+                        </form>
+                    </div> 
+                </div> 
+            </div> 
         </div>
-    </div>
-</div>
-@include('sweetalert::alert')
-</x-app>
-
+    </div> 
+    @include('sweetalert::alert')
+</x-admin>

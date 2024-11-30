@@ -20,15 +20,65 @@ class ProductController extends Controller
         return view('products', compact('product'));
     }
 
-    // public function show($encryptedId)
-    // {
-    //     $id = Product::decryptId($encryptedId);
-    //     $product = Product::findOrFail($id);
-    
-    //     return view('products.show', compact('product'));
-    // }
+public function adminIndex() {
+
+    $product = Product::all()->map(function ($product) {
+        $product->encrypted_id = Crypt::encryptString($product->id);
+        return $product;
+    });
+    return view('admin.products.index', compact('product'));
+}
 
 
+public function edit($id)
+{
+    $prod = Product::decryptId($id);
+    $product = Product::find($prod);
+    if($product){
+        return view('admin.products.edit', compact('product','id'));;
+    }else{
+        abort(404);
+    }
+}
+
+
+public function update(Request $request, $id)
+{
+    try {
+
+        $decryptedId = Product::decryptId($id);
+        $product = Product::findOrFail($decryptedId);
+
+        $request->validate([
+            'productName' => 'required|string|max:255',
+            'productPrice' => 'required|numeric|min:0',
+            'productDescription' => 'required|string',
+            'productTitle' => 'required|string|max:255',
+            'productImage' => 'nullable|image|max:2048',
+        ]);
+
+
+        $imagePath = $product->product_image; 
+        if ($request->hasFile('productImage')) {
+            $imagePath = $request->file('productImage')->store('products', 'public');
+        }
+
+        $product->update([
+            'product_name' => $request->input('productName'),
+            'price' => $request->input('productPrice'),
+            'description' => $request->input('productDescription'),
+            'title' => $request->input('productTitle'),
+            'product_image' => $imagePath,
+        ]);
+
+        toast('Product updated successfully!', 'success');
+       return redirect()->route('admin.productslist');
+    } catch (Exception $exception) {
+
+        toast($exception->getMessage(), 'error');
+        return redirect()->back()->with('error', 'Error: ' . $exception->getMessage());
+    }
+}
 
 
     public function show($encryptedId)
@@ -43,33 +93,29 @@ class ProductController extends Controller
         
     }
 
-    /**
-     * Store a newly created product in storage.
-     */
+  
     public function store(Request $request)
     {
 
         try {
-      $test =  $request->validate([
+        $request->validate([
             'productName' => 'required|string|max:255',
             'productPrice' => 'required|numeric|min:0',
             'productDescription' => 'required|string',
             'productTitle' => 'required|string|max:255',
-            'productCategory' => 'required|string',
-            'stockQuantity' => 'required|integer|min:0',
             'productImage' => 'required|image|max:2048', 
         ]);
 
         $imagePath = $request->file('productImage')->store('products', 'public');
 
    
-        $product = Product::create([
+      Product::create([
             'product_name' => $request->input('productName'),
             'price' => $request->input('productPrice'),
             'description' => $request->input('productDescription'),
             'title' => $request->input('productTitle'),
-            'category' => $request->input('productCategory'),
-            'quantity_in_stock' => $request->input('stockQuantity'),
+            'category' => "home",
+            'quantity_in_stock' => "300",
             'product_image' => $imagePath,
         ]);
 
@@ -78,11 +124,30 @@ class ProductController extends Controller
 
 
     }catch(Exception $exception){
-        toast('Validation Error: ','error');
-
+        toast($exception->getMessage(),'error');
         return redirect()->back()->with('error', 'Validation Error: '. $exception->getMessage());
     }
        
        
     }
+
+
+    public function destroy($id)
+    {
+        try {
+            $decryptedId = Product::decryptId($id);
+            $prod = Product::findOrFail($decryptedId);
+            $prod->delete();
+            toast('Product deleted successfully!', 'success');
+            return redirect()->back()->with('success', 'Product deleted successfully!');
+        } catch (Exception $exception) {
+            toast('Failed to delete the product: ' . $exception->getMessage(), 'error');
+            return redirect()->back()->with('error', 'Failed to delete the product.');
+        }
+    }
+    
+
+
+
+
 }
