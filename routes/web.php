@@ -1,14 +1,57 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
+use Illuminate\Support\Facades\Route;
 use App\Models\Article;
 use App\Models\Product;
 use App\Models\Location;
 use Illuminate\Support\Facades\Crypt;
-use Illuminate\Support\Facades\Route;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\LocationController;
+
+
+
+
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    Route::get('/products/create', [ProductController::class, 'create'])->name('products.create');
+    Route::post('/products/store', [ProductController::class, 'store'])->name('products.store');
+    
+    
+    Route::post('/articles', [ArticleController::class, 'store'])->name('articles.store');
+    Route::get('/articles/create', [ArticleController::class, 'index'])->name('articles.create');
+    Route::get('/articles/articles-list', [ArticleController::class, 'getArticle'])->name('articles.getArticle');
+    Route::delete("/articles/delete-article/{id}",[ArticleController::class,'destroy'])->name('article.delete');
+    Route::get("/articles/{encrypted_id}/edit",[ArticleController::class,'edit'])->name('articles.edit');
+    Route::put("/articles/{encrypted_id}/update",[ArticleController::class,'update'])->name('articles.update');
+    
+    Route::resource('locations', LocationController::class);
+    
+    Route::get('/admin/addproduct', function () {
+        return view('admin.addproduct');
+    })->name('admin.addproduct');
+    
+    Route::get("/admin/products-list",[ProductController::class,'adminIndex'])->name('admin.productslist');
+    Route::get("/admin/{encrypted_id}/edit-product",[ProductController::class,'edit'])->name('admin.editproduct');
+    Route::PUT("/admin/update-product/{id}",[ProductController::class,'update'])->name('products.update');
+    Route::delete("/admin/delete-product/{id}",[ProductController::class,'destroy'])->name('products.delete');
+
+
+
+});
+
+require __DIR__.'/auth.php';
+
 
 
 
@@ -53,46 +96,3 @@ Route::get('/view', function () {
 Route::get('view/{id}',[ProductController::class,'show'])->name('productdetail');
 
 Route::get('/product', [ProductController::class, 'index'])->name('product');
-Route::get('/products/create', [ProductController::class, 'create'])->name('products.create');
-Route::post('/products/store', [ProductController::class, 'store'])->name('products.store');
-
-
-
-
-
-
-
-Route::post('/articles', [ArticleController::class, 'store'])->name('articles.store');
-Route::get('/articles/create', [ArticleController::class, 'index'])->name('articles.create');
-Route::get('/articles/articles-list', [ArticleController::class, 'getArticle'])->name('articles.getArticle');
-Route::delete("/articles/delete-article/{id}",[ArticleController::class,'destroy'])->name('article.delete');
-Route::get("/articles/{encrypted_id}/edit",[ArticleController::class,'edit'])->name('articles.edit');
-Route::put("/articles/{encrypted_id}/update",[ArticleController::class,'update'])->name('articles.update');
-
-
-
-
-
-
-Route::resource('locations', LocationController::class);
-
-
-
-
-
-
-
-
-Route::get('/admin/addproduct', function () {
-    return view('admin.addproduct');
-})->name('admin.addproduct');
-
-
-Route::get("/admin/products-list",[ProductController::class,'adminIndex'])->name('admin.productslist');
-Route::get("/admin/{encrypted_id}/edit-product",[ProductController::class,'edit'])->name('admin.editproduct');
-Route::PUT("/admin/update-product/{id}",[ProductController::class,'update'])->name('products.update');
-Route::delete("/admin/delete-product/{id}",[ProductController::class,'destroy'])->name('products.delete');
-
-
-
-
