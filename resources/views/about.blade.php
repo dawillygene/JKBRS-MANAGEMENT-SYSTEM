@@ -70,56 +70,65 @@
 
                 <div class="col-lg-4 col-md-8 col-sm-10 mx-auto" data-aos="fade-right" data-aos-duration="500">
                     <div class="p-0">
-                        <i class="icofont-leaf display-4 bg-success benifits-icon text-white rounded-0"></i>
+                        <i class="ri-leaf-line display-4 bg-success benifits-icon text-white rounded-0"></i>
                         <h4 class="fw-bold pb-2 mt-4 text-white">Tiba za Asili</h4>
-                        <p class="mb-0 text-white">Kufanya utafiti, kuzalisha, na kukuza tiba za asili; kuendesha shule, 
+                        <p class="mb-0 text-white">
+                            Kufanya utafiti, kuzalisha, na kukuza tiba za asili; kuendesha shule, 
                             vyuo, na vituo vya afya ili kuboresha mbinu za tiba za jadi.
                         </p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-8 col-sm-10 mx-auto" data-aos="fade-left" data-aos-duration="400">
                     <div class="p-0">
-                        <i class="icofont-heartbeat display-4 bg-success benifits-icon text-white rounded-0"></i>
+                        <i class="ri-heart-pulse-line display-4 bg-success benifits-icon text-white rounded-0"></i>
                         <h4 class="fw-bold pb-2 mt-4 text-white">Utengenezaji wa Bidhaa za Asili</h4>
-                        <p class="mb-0 text-white">Kuchakata, kuzalisha, na kusambaza bidhaa za asili na za mitishamba kwa matumizi mbalimbali,
-                             ikiwemo afya na kilimo.
+                        <p class="mb-0 text-white">
+                            Kuchakata, kuzalisha, na kusambaza bidhaa za asili na za mitishamba kwa matumizi mbalimbali,
+                            ikiwemo afya na kilimo.
                         </p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-8 col-sm-10 mx-auto" data-aos="fade-right" data-aos-duration="700">
                     <div class="p-0">
-                        <i class="icofont-stethoscope-alt display-4 bg-success benifits-icon text-white rounded-0"></i>
+                        <i class="ri-stethoscope-line display-4 bg-success benifits-icon text-white rounded-0"></i>
                         <h4 class="fw-bold pb-2 mt-4 text-white">Kilimo na Huduma za Mifugo</h4>
-                        <p class="mb-0 text-white">Kutengeneza mbolea, kushiriki katika shughuli za kilimo,
-                             na kusaidia mahitaji ya mifugo
+                        <p class="mb-0 text-white">
+                            Kutengeneza mbolea, kushiriki katika shughuli za kilimo,
+                            na kusaidia mahitaji ya mifugo.
                         </p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-8 col-sm-10 mx-auto" data-aos="fade-left" data-aos-duration="800">
                     <div class="p-0 text-white">
-                        <i class="icofont-plant display-4 bg-success benifits-icon text-white rounded-0"></i>
+                        <i class="ri-plant-line display-4 bg-success benifits-icon text-white rounded-0"></i>
                         <h4 class="fw-bold pb-2 mt-4 text-white">Biashara ya Jumla</h4>
-                        <p class="mb-0 text-white">Kusambaza aina mbalimbali za bidhaa, kuanzia vifaa vya kielektroniki na vifaa vya viwandani hadi nguo na vyakula,
-                             kwa watu binafsi, biashara, na taasisi.
+                        <p class="mb-0 text-white">
+                            Kusambaza aina mbalimbali za bidhaa, kuanzia vifaa vya kielektroniki na vifaa vya viwandani hadi nguo na vyakula,
+                            kwa watu binafsi, biashara, na taasisi.
                         </p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-8 col-sm-10 mx-auto" data-aos="fade-right" data-aos-duration="700">
                     <div class="p-0">
-                        <i class="icofont-stethoscope-alt display-4 bg-success benifits-icon text-white rounded-0"></i>
+                        <i class="ri-truck-line display-4 bg-success benifits-icon text-white rounded-0"></i>
                         <h4 class="fw-bold pb-2 mt-4 text-white">Usafirishaji na Usafirishaji wa Mizigo</h4>
-                        <p class="mb-0 text-white">Kutoa suluhisho kamili za usafirishaji wa mizigo na watu ndani ya Tanzania na nchi za jirani.
+                        <p class="mb-0 text-white">
+                            Kutoa suluhisho kamili za usafirishaji wa mizigo na watu ndani ya Tanzania na nchi za jirani.
                         </p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-8 col-sm-10 mx-auto" data-aos="fade-left" data-aos-duration="700">
                     <div class="p-0">
-                        <i class="icofont-stethoscope-alt display-4 bg-success benifits-icon text-white rounded-0"></i>
+                        <i class="ri-trophy-line display-4 bg-success benifits-icon text-white rounded-0"></i>
                         <h4 class="fw-bold pb-2 mt-4 text-white">Madini na Usindikaji wa Madini</h4>
-                        <p class="mb-0 text-white">Kuchimba na kuchakata madini ya thamani na vito, kuchangia sekta ya madini nchini.
+                        <p class="mb-0 text-white">
+                            Kuchimba na kuchakata madini ya thamani na vito, kuchangia sekta ya madini nchini.
                         </p>
                     </div>
                 </div>
+                
+
+
             </div>
         </div>
     </div>
@@ -146,7 +155,7 @@
             <div class="row g-4 text-center team-images justify-content-center">
                 <div class="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center">
                     <div class="card bg-transparent border-0 rounded-0 d-flex flex-column" data-aos="zoom-in" data-aos-duration="1000">
-                        <img src="img/team/member-1.jpg" class="card-img-top rounded-5" alt="team">
+                        <img src="{{ asset('assets/img/buberwa.jpg') }}" class="card-img-top rounded-5" alt="team">
                         <div class="card-body px-0">
                             <h5 class="card-title fw-bold pb-2 text-success">Dk. Joseph Kankola Buberwa</h5>
                             <h6 class="card-title fw-bold pb-2 text-success">Mwanzilishi na Mkurugenzi wa Kampuni</h6>
@@ -162,7 +171,7 @@
     
                 <div class="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center">
                     <div class="card bg-transparent border-0 rounded-0 d-flex flex-column" data-aos="zoom-in" data-aos-duration="1000">
-                        <img src="img/team/member-2.jpg" class="card-img-top rounded-5" alt="team">
+                        <img src="{{ asset('assets/img/riziki.jpg') }}" class="card-img-top rounded-5" alt="team">
                         <div class="card-body px-0">
                             <h5 class="card-title fw-bold pb-2 text-success">Riziki Joseph Buberwa</h5>
                             <h6 class="card-title fw-bold pb-2 text-success">Mkurugenzi Mwenza</h6>
@@ -261,22 +270,39 @@
 
 </div>
 
+@push('css')
+<style>
+    iframe.card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 
+</style>
+@endpush
 
-
-<!-- Video -->
 <div class="py-5">
     <div class="container pt-4">
         <div class="row">
             <div class="col-12">
                 <div class="card text-bg-dark border-0 rounded-5 overflow-hidden" data-aos="zoom-in" data-aos-duration="1000">
-                    <img src="img/video.jpg" class="card-img opacity-50" alt="video">
+                    <iframe
+                      class="card-img opacity-50"
+                      src="https://www.youtube.com/embed/Z0_pqZN234Y"
+                      frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowfullscreen
+                    ></iframe>
                     <div class="card-img-overlay d-flex align-items-center justify-content-center">
-                        <a href="#" class="link-light stretched link" data-bs-toggle="modal" data-bs-target="#videoModal"><i class="ri-play-fill display-1"></i></a>
+                        <a href="#" class="link-light stretched-link" data-bs-toggle="modal" data-bs-target="#videoModal">
+                            <i class="ri-play-fill display-1"></i>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+
 </x-app>

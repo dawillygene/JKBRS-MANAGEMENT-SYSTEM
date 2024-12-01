@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="icon" href="" type="image/png">
+        <link rel="icon" href="{{ asset('assets/img/logo.png') }}" type="image/png">
         <title>{{ config('app.name' , 'jkbrs Interntional') }}</title>
         <link rel="stylesheet" href="{{ asset("assets/css/bootstrap.min.css") }}">
         <link rel="stylesheet" href="{{ asset("assets/css/icofont.min.css") }}">
@@ -46,7 +46,6 @@
 
    
 }
-
         </style>
         @stack('css')
     </head>
@@ -64,16 +63,19 @@
             <div class="sticky-top"> 
             <nav class="navbar osahan-main-nav navbar-expand-lg pets-nav p-0">
                 <div class="container-fluid bg-success py-lg-0 py-3">
-                    <div class="position-relative d-flex align-items-center gap-2 site-brand">
-                        {{-- <i class="ri-badu-line fs-2 lh-1 text-danger">
-                            <img src="{{ asset("assets/img/logo.jpeg") }}"  style="width: 20%; margin:0%; padding:0%; "  alt="">
-                        </i> --}}
+                    <div class="position-relative d-flex align-items-center gap-1 site-brand">
+                        <i class="ri-badu-line fs-1 lh-1 text-danger">
+                            <img src="{{ asset('assets/img/logo.png') }}"  
+                                 style="width:40%; margin:0; padding:0;" 
+                                 alt="logo">
+                        </i>
                         <div class="lh-1">
                             <h5 class="fw-bold m-0 text-white">JKBRS INTERNATIONAL</h5>
                             <small class="text-white-50">Jkbrs</small>
                         </div>
                         <a class="stretched-link" href="{{ route('home') }}"></a>
                     </div>
+                    
                     <button class="navbar-toggler border-0 d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
                         <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/></svg>
                     </button>
@@ -135,15 +137,30 @@
                     </ul>
                 </div>
             </div>    
-</div>           
+        </div>           
 
             {{ $slot }}
 
+
+            <a href="https://wa.me/+255753185592" target="_blank" class="whatsapp-float" title="Chat with us on WhatsApp">
+                <i class="ri-whatsapp-line"></i>
+            </a>
+            
 
        <x-footer />
        @include('sweetalert::alert')
         @stack('scripts')
         <script data-cfasync="true" src="{{ asset("assets/js/email-decode.min.js") }}"></script>
+        <script>
+            window.addEventListener('scroll', function () {
+                const whatsappButton = document.querySelector('.whatsapp-float');
+                if (window.scrollY > 200) {
+                    whatsappButton.style.display = 'flex';
+                } else {
+                    whatsappButton.style.display = 'none';
+                }
+            });
+        </script>
         <script src="{{ asset("assets/js/bootstrap.bundle.min.js") }}"></script>
         <script src="{{ asset("assets/js/jquery-3.6.4.min.js") }}"></script>
         <script src="{{ asset("assets/js/aos.js") }}"></script>

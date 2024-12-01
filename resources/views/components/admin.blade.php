@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.min.css"
         integrity="sha256-Qsx5lrStHZyR9REqhUF8iQt73X06c8LGIUPzpOhwRrI=" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('admin/assets/css/adminlte.css') }}">
+    <link rel="icon" href="{{ asset('assets/img/logo.png') }}" type="image/png">
 </head>
 
 <body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
@@ -42,7 +43,7 @@
         </nav>
         <aside class="app-sidebar bg-body-secondary shadow" data-bs-theme="dark">
             <div class="sidebar-brand"> <a href="{{ route('dashboard') }}" class="brand-link">
-                    <img src="" alt="JKBRS" class="brand-image opacity-75 shadow"><span
+                    <img src="{{ asset('assets/img/logo.png') }}" alt="JKBRS" class="brand-image opacity-75 shadow"><span
                         class="brand-text fw-light">JKBRS</span></a>
             </div>
             <div class="sidebar-wrapper">
