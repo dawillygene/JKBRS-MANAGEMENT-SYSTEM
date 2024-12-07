@@ -1,11 +1,3 @@
-{{-- <x-app-layout>
-
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Profile') }}
-        </h2>
-    </x-slot> --}}
-
 <x-admin>
     <x-slot:heading>
             {{ __('Profile') }}
@@ -36,4 +28,4 @@
     </div>
 
 </x-admin>
-{{-- </x-app-layout> --}}
+

@@ -269,7 +269,6 @@
     </div>
 
 </div>
-
 @push('css')
 <style>
     iframe.card-img {
@@ -277,7 +276,6 @@
     height: 100%;
     object-fit: cover;
 }
-
 </style>
 @endpush
 
