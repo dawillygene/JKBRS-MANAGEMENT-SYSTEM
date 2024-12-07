@@ -49,6 +49,9 @@
                             </table>
                         </div>
                     </div>
+
+                    <div>{{ $location->links() }}</div>
+
                 </div>
             </div>
         </div>

@@ -46,9 +46,11 @@ class ArticleController extends Controller
 
 
     public function getArticle(){
-        $article = Article::all()->map(function(Article $article){
-         $article->encrypted_id = Crypt::encrypt($article->id);
-         return $article;
+        $article = Article::paginate(2);
+
+        $article->getCollection()->transform(function ($article) {
+            $article->encrypted_id = Crypt::encrypt($article->id);
+            return $article;
         });
         return view('admin.articles.list',compact('article'));
     }
