@@ -10,8 +10,9 @@ class LocationController extends Controller
 {
     public function index()
     {
+        $location = Location::paginate(6);
 
-        $location = Location::all()->map(function (Location $location) {
+        $location->getCollection()->transform(function ($location) {
             $location->encrypted_id = Crypt::encrypt($location->id);
             return $location;
         });

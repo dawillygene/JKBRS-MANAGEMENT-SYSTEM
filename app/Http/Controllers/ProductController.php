@@ -22,11 +22,17 @@ class ProductController extends Controller
 
 public function adminIndex() {
 
-    $product = Product::all()->map(function ($product) {
-        $product->encrypted_id = Crypt::encryptString($product->id);
-        return $product;
-    });
-    return view('admin.products.index', compact('product'));
+// Paginate the query before applying the map
+$product = Product::Paginate(6);
+
+// Use map after retrieving the paginated items
+$product->getCollection()->transform(function ($product) {
+    $product->encrypted_id = Crypt::encryptString($product->id);
+    return $product;
+});
+
+return view('admin.products.index', compact('product'));
+
 }
 
 
