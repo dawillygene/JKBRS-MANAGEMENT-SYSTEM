@@ -10,6 +10,7 @@ use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\LocationController;
+use App\Http\Controllers\SocialMediaLinkController;
 
 
 
@@ -47,6 +48,11 @@ Route::middleware('auth')->group(function () {
     Route::delete("/admin/delete-product/{id}",[ProductController::class,'destroy'])->name('products.delete');
 
 
+    Route::resource('admin/social-media-links', SocialMediaLinkController::class);
+
+
+
+
 
 });
 
@@ -62,7 +68,7 @@ Route::get('/', function () {
         return $product;
     });
 
-    $articles = Article::latest()->take(10)->get(); 
+    $articles = Article::latest()->take(10)->get();  
 
     $productnew = Product::orderBy('created_at', 'desc')->take(3)->get()->map(function ($product) {
         $product->encrypted_id = Crypt::encryptString($product->id);
@@ -96,3 +102,4 @@ Route::get('/view', function () {
 Route::get('view/{id}',[ProductController::class,'show'])->name('productdetail');
 
 Route::get('/product', [ProductController::class, 'index'])->name('product');
+

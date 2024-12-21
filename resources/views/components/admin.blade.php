@@ -124,6 +124,10 @@
                                     </a> </li>
                             </ul>
                         </li>
+                        <li class="nav-item"> <a href="{{ route('social-media-links.index') }}" class="nav-link"> <i
+                                    class="nav-icon bi bi-circle text-info"></i>
+                                <p>Social Media</p>
+                            </a> </li>
                         <li class="nav-header">EXAMPLES</li>
                         <li class="nav-item"> <a href="#" class="nav-link"> <i
                                     class="nav-icon bi bi-circle text-info"></i>

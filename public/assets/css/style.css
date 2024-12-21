@@ -26,8 +26,8 @@ a:hover {
 	color: #F54A01;
 }
 .pets-nav  a.nav-link {
-	padding-top: 35px !important;
-	padding-bottom: 35px !important;
+	padding-top: 25px !important;
+	padding-bottom: 25px !important;
 	color: #ffffff !important;
 }
 
@@ -218,4 +218,33 @@ footer .top-footer a:hover {
 	.m-none {
 		display: none;
 	}
+}
+
+.nav-item .border-left-1{
+    border-left: 1px solid #ccc4;
+}
+
+.nav-item a{
+    border-right: 1px solid #ccc4;
+    text-align: center;
+    width: 125px;
+    display: inline-block;
+}
+
+.call-us{
+    background: #fff;
+    border-radius: 40px;
+    color: #2E8B57 !important;
+    padding: 9px 35px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.call-us:hover{
+    color: #0f5132;
+}
+
+.navbar-height {
+    background-color: #2E8B57 !important;
+    height: 75px;
 }
