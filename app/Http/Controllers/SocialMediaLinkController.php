@@ -38,6 +38,12 @@ public function edit($id){
 
 }
 
+public function indexView()
+{
+    $links = SocialMediaLink::select('platform', 'url')->get();
+    return response()->json($links);
+}
+
 
 
 

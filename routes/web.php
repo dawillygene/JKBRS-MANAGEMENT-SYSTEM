@@ -74,7 +74,7 @@ Route::get('/', function () {
         $product->encrypted_id = Crypt::encryptString($product->id);
         return $product;
     });
-
+    
     return view('index',compact('product','productnew','articles'));
 
 })->name('home');
@@ -103,3 +103,4 @@ Route::get('view/{id}',[ProductController::class,'show'])->name('productdetail')
 
 Route::get('/product', [ProductController::class, 'index'])->name('product');
 
+Route::get('/social-media-links', [SocialMediaLinkController::class,"indexView"])->name("SocialMedia.index");
