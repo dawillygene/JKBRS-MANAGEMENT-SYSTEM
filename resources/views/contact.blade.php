@@ -243,29 +243,40 @@ background-color: #B4BFA1;
                         kutumia fomu hii.
                     </p>
                 </div>
-                <form class="form" data-aos="fade-left" data-aos-duration="1000">
-                    <div class="mb-4">
-                        <label for="name" class="form-label text-light">Jina la Kwanza na la Mwisho</label>
-                        <input type="text" class="form-control bg-light rounded-0 border-0" id="name"
-                            placeholder="Ingiza jina lako">
-                    </div>
-                    <div class="mb-4">
-                        <label for="exampleFormControlInput1" class="form-label text-light">Anwani ya Barua Pepe</label>
-                        <input type="email" class="form-control bg-light rounded-0 border-0"
-                            id="exampleFormControlInput1" placeholder="jina@example.com">
-                    </div>
-                    <div class="mb-4">
-                        <label for="subject" class="form-label text-light">Mada</label>
-                        <input type="text" class="form-control bg-light rounded-0 border-0" id="subject"
-                            placeholder="Ingiza mada yako">
-                    </div>
-                    <div class="mb-4">
-                        <label for="exampleFormControlMessage" class="form-label text-light">Maoni au Ujumbe *</label>
-                        <textarea class="form-control bg-light rounded-0 border-0" id="exampleFormControlMessage" rows="6"
-                            placeholder="Ingiza maoni yako"></textarea>
-                    </div>
-                    <a href="#" class="btn btn-danger btn-lg rounded-pill">Tuma Ujumbe</a>
-                </form>
+                 <form action="{{ route('form.store') }}" method="POST" class="form" data-aos="fade-left" data-aos-duration="1000">
+        @csrf
+        @if (session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
+
+        <div class="mb-4">
+            <label for="name" class="form-label text-light">Jina la Kwanza na la Mwisho</label>
+            <input type="text" name="name" class="form-control bg-light rounded-0 border-0" id="name"
+                placeholder="Ingiza jina lako" value="{{ old('name') }}" required>
+            @error('name') <small class="text-danger">{{ $message }}</small> @enderror
+        </div>
+        <div class="mb-4">
+            <label for="email" class="form-label text-light">Anwani ya Barua Pepe</label>
+            <input type="email" name="email" class="form-control bg-light rounded-0 border-0" id="email"
+                placeholder="jina@example.com" value="{{ old('email') }}" required>
+            @error('email') <small class="text-danger">{{ $message }}</small> @enderror
+        </div>
+        <div class="mb-4">
+            <label for="subject" class="form-label text-light">Mada</label>
+            <input type="text" name="subject" class="form-control bg-light rounded-0 border-0" id="subject"
+                placeholder="Ingiza mada yako" value="{{ old('subject') }}" required>
+            @error('subject') <small class="text-danger">{{ $message }}</small> @enderror
+        </div>
+        <div class="mb-4">
+            <label for="message" class="form-label text-light">Maoni au Ujumbe *</label>
+            <textarea name="message" class="form-control bg-light rounded-0 border-0" id="message" rows="6"
+                placeholder="Ingiza maoni yako" required>{{ old('message') }}</textarea>
+            @error('message') <small class="text-danger">{{ $message }}</small> @enderror
+        </div>
+        <button type="submit" class="btn btn-danger btn-lg rounded-pill">Tuma Ujumbe</button>
+    </form>
             </div>
         </div>
     </div>

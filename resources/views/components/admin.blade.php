@@ -43,98 +43,115 @@
         </nav>
         <aside class="app-sidebar bg-body-secondary shadow" data-bs-theme="dark">
             <div class="sidebar-brand"> <a href="{{ route('dashboard') }}" class="brand-link">
-                    <img src="{{ asset('assets/img/logo.png') }}" alt="JKBRS" class="brand-image opacity-75 shadow"><span
-                        class="brand-text fw-light">JKBRS</span></a>
+                    <img src="{{ asset('assets/img/logo.png') }}" alt="JKBRS"
+                        class="brand-image opacity-75 shadow"><span class="brand-text fw-light">JKBRS</span></a>
             </div>
             <div class="sidebar-wrapper">
                 <nav class="mt-2">
                     <ul class="nav sidebar-menu flex-column" data-lte-toggle="treeview" role="menu"
                         data-accordion="false">
                         <li class="nav-item">
-
-                        <li class="nav-item"> <a href="{{ route('dashboard') }}" class="nav-link"> <i
-                                    class="nav-icon bi bi-speedometer"></i>
+                            <a href="{{ route('dashboard') }}" class="nav-link">
+                                <i class="nav-icon bi bi-speedometer fs-5 me-2 text-primary"></i>
                                 <p>Dashboard</p>
-                            </a> </li>
+                            </a>
                         </li>
 
-                        <li class="nav-item"> <a href="#" class="nav-link"> <i
-                                    class="nav-icon bi bi-box-seam-fill"></i>
-                                <p>
-                                    Products
-                                    <i class="nav-arrow bi bi-chevron-right"></i>
-                                </p>
+                        <!-- Products Menu -->
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon bi bi-box-seam-fill fs-5 me-2 text-success"></i>
+                                <p>Products<i class="nav-arrow bi bi-chevron-right"></i></p>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="{{ route('admin.addproduct') }}"
                                         class="nav-link {{ Route::is('admin.addproduct') ? 'active' : '' }}">
-                                        <i class="nav-icon bi bi-circle"></i>
-                                        <p>add product</p>
+                                        <i class="nav-icon bi bi-plus-circle me-2"></i>
+                                        <p>Add Product</p>
                                     </a>
                                 </li>
-
-                                <li class="nav-item"> <a href="{{ route('admin.productslist') }}" class="nav-link"> <i
-                                            class="nav-icon bi bi-circle"></i>
-                                        <p>List all product</p>
-                                    </a> </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('admin.productslist') }}" class="nav-link">
+                                        <i class="nav-icon bi bi-list me-2"></i>
+                                        <p>List All Products</p>
+                                    </a>
+                                </li>
                             </ul>
                         </li>
-                        <li class="nav-item"> <a href="#" class="nav-link"> <i
-                                    class="nav-icon bi bi-box-seam-fill"></i>
-                                <p>
-                                    Articles
-                                    <i class="nav-arrow bi bi-chevron-right"></i>
-                                </p>
+
+                        <!-- Articles Menu -->
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon bi bi-journal-text fs-5 me-2 text-warning"></i>
+                                <p>Articles<i class="nav-arrow bi bi-chevron-right"></i></p>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="{{ route('articles.create') }}"
                                         class="nav-link {{ Route::is('articles.create') ? 'active' : '' }}">
-                                        <i class="nav-icon bi bi-circle"></i>
-                                        <p>add article</p>
+                                        <i class="nav-icon bi bi-plus-circle me-2"></i>
+                                        <p>Add Article</p>
                                     </a>
                                 </li>
-
-                                <li class="nav-item"> <a href="{{ route('articles.getArticle') }}" class="nav-link"> <i
-                                            class="nav-icon bi bi-circle"></i>
-                                        <p>List all articles</p>
-                                    </a> </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('articles.getArticle') }}" class="nav-link">
+                                        <i class="nav-icon bi bi-list me-2"></i>
+                                        <p>List All Articles</p>
+                                    </a>
+                                </li>
                             </ul>
                         </li>
-                        <li class="nav-item"> <a href="#" class="nav-link"> <i
-                                    class="nav-icon bi bi-box-seam-fill"></i>
-                                <p>
-                                    Locations
-                                    <i class="nav-arrow bi bi-chevron-right"></i>
-                                </p>
+
+                        <!-- Locations Menu -->
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon bi bi-geo-alt-fill fs-5 me-2 text-danger"></i>
+                                <p>Locations<i class="nav-arrow bi bi-chevron-right"></i></p>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="{{ route('locations.create') }}"
-                                        class="nav-link {{ Route::is('articles.create') ? 'active' : '' }}">
-                                        <i class="nav-icon bi bi-circle"></i>
-                                        <p>add locations</p>
+                                    <a href="{{ route('locations.create') }}" class="nav-link">
+                                        <i class="nav-icon bi bi-plus-circle me-2"></i>
+                                        <p>Add Location</p>
                                     </a>
                                 </li>
-
-                                <li class="nav-item"> <a href="{{ route('locations.index') }}" class="nav-link"> <i
-                                            class="nav-icon bi bi-circle"></i>
-                                        <p>List all locations</p>
-                                    </a> </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('locations.index') }}" class="nav-link">
+                                        <i class="nav-icon bi bi-list me-2"></i>
+                                        <p>List All Locations</p>
+                                    </a>
+                                </li>
                             </ul>
                         </li>
-                        <li class="nav-item"> <a href="{{ route('social-media-links.index') }}" class="nav-link"> <i
-                                    class="nav-icon bi bi-circle text-info"></i>
+
+                        <!-- Social Media -->
+                        <li class="nav-item">
+                            <a href="{{ route('social-media-links.index') }}" class="nav-link">
+                                <i class="nav-icon bi bi-globe fs-5 me-2 text-info"></i>
                                 <p>Social Media</p>
-                            </a> </li>
+                            </a>
+                        </li>
+
+                        <!-- Messages -->
+                        <li class="nav-item">
+                            <a href="{{ route('messages.index') }}" class="nav-link">
+                                <i class="nav-icon bi bi-envelope fs-5 me-2 text-secondary"></i>
+                                <p>Messages</p>
+                            </a>
+                        </li>
+
+                        <!-- Informational -->
                         <li class="nav-header">EXAMPLES</li>
-                        <li class="nav-item"> <a href="#" class="nav-link"> <i
-                                    class="nav-icon bi bi-circle text-info"></i>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon bi bi-info-circle fs-5 me-2 text-primary"></i>
                                 <p>Informational</p>
-                            </a> </li>
+                            </a>
+                        </li>
                     </ul>
                 </nav>
+
             </div>
         </aside>
         <main class="app-main">
@@ -167,4 +184,5 @@
     </div>
     <script src="{{ asset('admin/assets/js/adminlte.js') }}"></script>
 </body>
+
 </html>

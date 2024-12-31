@@ -1,15 +1,19 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
-use Illuminate\Support\Facades\Route;
 use App\Models\Article;
 use App\Models\Product;
+use App\Models\Visitor;
 use App\Models\Location;
+use App\Models\FormSubmission;
 use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\Route;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\VisitorController;
 use App\Http\Controllers\LocationController;
+use App\Http\Controllers\FormSubmissionController;
 use App\Http\Controllers\SocialMediaLinkController;
 
 
@@ -17,7 +21,18 @@ use App\Http\Controllers\SocialMediaLinkController;
 
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+
+    $productCount = Product::count();
+    $articleCount = Article::count();
+    $messageCount = FormSubmission::count();
+    $locationCount = Location::count();
+   $visitorCount = Visitor::first('count')->count; 
+    return view('dashboard', compact('productCount', 'articleCount', 'messageCount', 'locationCount',
+    'visitorCount'
+));
+
+
+    // return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
@@ -49,6 +64,9 @@ Route::middleware('auth')->group(function () {
 
 
     Route::resource('admin/social-media-links', SocialMediaLinkController::class);
+
+    Route::get('/admin/messages', [FormSubmissionController::class, 'index'])->name('messages.index');
+    Route::delete('/admin/messages/{id}', [FormSubmissionController::class, 'destroy'])->name('messages.destroy');
 
 
 
@@ -104,3 +122,9 @@ Route::get('view/{id}',[ProductController::class,'show'])->name('productdetail')
 Route::get('/product', [ProductController::class, 'index'])->name('product');
 
 Route::get('/social-media-links', [SocialMediaLinkController::class,"indexView"])->name("SocialMedia.index");
+
+
+
+Route::post('/form', [FormSubmissionController::class, 'store'])->name('form.store');
+
+Route::post('/increment-visitor-count', [VisitorController::class, 'incrementVisitorCount']);

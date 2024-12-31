@@ -5,7 +5,7 @@
                 <h5 class="fw-bold pb-3">Makundi</h5>
                 <ul class="list-unstyled d-grid gap-2 text-white-50">
                     <li class="text-secondary-emphasis"><a href="#">Wateja</a> (5)</li>
-                    <li class="text-secondary-emphasis"><a href="#">Wafanyakazi</a> (3)</li>
+                    <li class="text-secondary-emphasis"><a href="{{ route('dashboard') }}">Wafanyakazi</a> (3)</li>
                     <li class="text-secondary-emphasis"><a href="#">Wasambazaji</a> (3)</li>
                 </ul>
             </div>

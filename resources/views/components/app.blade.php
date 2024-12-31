@@ -3,6 +3,7 @@
 <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" href="{{ asset('assets/img/logo.png') }}" type="image/png">
         <title>{{ config('app.name' , 'jkbrs Interntional') }}</title>
@@ -24,7 +25,7 @@
     color: #fff !important;
 }
 
-/* Mobile Styles */
+
 @media (max-width: 991.98px) {
     .navbar-collapse {
         background: linear-gradient(
@@ -34,7 +35,6 @@
         #989c97 75%,
         #bebbb8 100%
     );
-        /* padding: 1rem; */
         position: absolute;
         top: 100%;
         text-align: center;
@@ -166,6 +166,20 @@
        @include('sweetalert::alert')
         @stack('scripts')
         <script data-cfasync="true" src="{{ asset("assets/js/email-decode.min.js") }}"></script>
+            <script>
+        window.onload = function() {
+            fetch('/increment-visitor-count', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content') // CSRF token
+                }
+            })
+            .then(response => response.json())
+            .then(data => console.log(data.message))
+            .catch(err => console.error('Error:', err));
+        };
+    </script>
         <script>
             window.addEventListener('scroll', function () {
                 const whatsappButton = document.querySelector('.whatsapp-float');
