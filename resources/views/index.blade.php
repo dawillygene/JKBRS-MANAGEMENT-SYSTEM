@@ -58,7 +58,7 @@
                             </div>
                             <div class="col-lg-4">
                                 <div class="text-center text-md-end">
-                                    <a href="#discount" class="btn btn-light btn-lg rounded-pill">Dai Punguzo</a>
+                                    <a href="{{ route('product') }}" class="btn btn-light btn-lg rounded-pill">Dai Punguzo</a>
                                 </div>
                             </div>
                         </div>
@@ -106,7 +106,7 @@
                             </h4>
                             <p class="mb-0 small text-muted">Msaada kwa afya ya homoni na uzazi kupitia viungo vya
                                 kiasili.</p>
-                            <a href="#" class="stretched-link"></a>
+                            <a href="{{ route('product') }}" class="stretched-link"></a>
                         </div>
                     </div>
                 </div>
@@ -120,7 +120,7 @@
                             </h4>
                             <p class="mb-0 small text-muted">Suluhu za kiasili kwa ngozi yenye afya na mng’ao, bila
                                 kemikali kali.</p>
-                            <a href="#" class="stretched-link"></a>
+                            <a href="{{ route('product') }}" class="stretched-link"></a>
                         </div>
                     </div>
                 </div>
@@ -134,7 +134,7 @@
                             </h4>
                             <p class="mb-0 small text-muted">Tiba za mimea zinazosaidia mwili kupambana na saratani kwa
                                 njia ya kiasili.</p>
-                            <a href="#" class="stretched-link"></a>
+                            <a href="{{ route('product') }}" class="stretched-link"></a>
                         </div>
                     </div>
                 </div>
@@ -165,7 +165,7 @@
                                     alt="Kinga ya Mwili">
                             </div>
                             <div class="card-body">
-                                <a href="#">
+                                <a href="{{ route('productdetail', $prod->encrypted_id) }}">
                                     <h5 class="card-title fw-bold pb-2">{{ $prod->title }}</h5>
                                 </a>
                                 <p class="card-text fw-semibold text-success mb-1">{{ number_format($prod->price)}} Tsh</p>
@@ -299,7 +299,7 @@
                                     alt="Kinga ya Mwili">
                             </div>
                             <div class="card-body">
-                                <a href="#">
+                                <a href="{{ route('productdetail', $prod->encrypted_id) }}">
                                     <h5 class="card-title fw-bold pb-2">{{ $prod->title }}</h5>
                                 </a>
                                 <p class="card-text fw-semibold text-success mb-1">{{ $prod->price }} Tsh</p>
