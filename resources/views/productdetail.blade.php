@@ -164,6 +164,11 @@ text-color {
                         Una swali kuhusu bidhaa zetu kwenye E-Store? Usisite kuwasiliana na wawakilishi wetu kupitia mazungumzo ya moja kwa moja au barua pepe.
                     </div>                    
                 </div>
+                <div class="buttons d-flex my-5">
+                    <div class="block">
+                        <a href="{{ route('payment.form', $prod->id) }}" class="shadow btn custom-btn">Pay Now</a>
+                    </div>
+                </div>
 
                 {{-- <div class="delivery my-4">
                     <p class="font-weight-bold mb-0"><span><i class="fa-solid fa-truck"></i></span> <b>Delivery done in 3 days from date of purchase</b> </p>

@@ -128,3 +128,16 @@ Route::get('/social-media-links', [SocialMediaLinkController::class,"indexView"]
 Route::post('/form', [FormSubmissionController::class, 'store'])->name('form.store');
 
 Route::post('/increment-visitor-count', [VisitorController::class, 'incrementVisitorCount']);
+
+
+
+use App\Http\Controllers\PaymentController;
+
+Route::get('/payment/{id}', [PaymentController::class, 'showPaymentForm'])->name('payment.form');
+Route::post('/process-payment', [PaymentController::class, 'processPayment'])->name('process.payment');
+Route::get('/payment/success', function () {
+    return view('payment.payment_success');
+})->name('payment.success');
+Route::get('/payment/failure', function () {
+    return view('payment.payment_failure');
+})->name('payment.failure');
