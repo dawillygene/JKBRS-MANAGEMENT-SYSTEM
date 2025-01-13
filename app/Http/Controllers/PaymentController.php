@@ -20,7 +20,7 @@ class PaymentController extends Controller
             'phone' => 'required|string',
         ]);
 
-        $response = Http::post('https://api.selcom.com/v1/payments', [
+        $response = Http::post('https://api.selcom.com/v1/payments/set', [
             'amount' => $request->amount,
             'phone' => $request->phone,
             'api_key' => env('SELCOM_API_KEY'),
