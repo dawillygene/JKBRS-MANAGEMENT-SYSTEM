@@ -15,7 +15,7 @@ class ProductController extends Controller
         $product = Product::all()->map(function ($product) {
             $product->encrypted_id = Crypt::encryptString($product->id);
             return $product;
-        });
+        }); //made product all
     
         return view('products', compact('product'));
     }
