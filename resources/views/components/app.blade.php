@@ -25,7 +25,6 @@
     color: #fff !important;
 }
 
-
 @media (max-width: 991.98px) {
     .navbar-collapse {
         background: linear-gradient(
@@ -43,12 +42,10 @@
         z-index: 100;
         width: 100%;
     }
-
     .navbar-height {
         background-color: #2E8B57 !important;
         height: 85px;
     }
-
     .navbar .nav-item{
         display: inline-block !important;
     }

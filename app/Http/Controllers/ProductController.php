@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Exception;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Crypt;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class ProductController extends Controller
 {
@@ -22,31 +24,50 @@ class ProductController extends Controller
 
 public function adminIndex() {
 
-// Paginate the query before applying the map
-$product = Product::Paginate(6);
+    try {
 
-// Use map after retrieving the paginated items
-$product->getCollection()->transform(function ($product) {
-    $product->encrypted_id = Crypt::encryptString($product->id);
-    return $product;
-});
+        $product = Product::paginate(6);
 
-return view('admin.products.index', compact('product'));
+        $product->getCollection()->transform(function ($product) {
+            try {
+                $product->encrypted_id = Crypt::encryptString($product->id);
+            } catch (Exception $e) {
+                Log::error('Encryption error for product ID ' . $product->id . ': ' . $e->getMessage());
+                throw new Exception("Failed to encrypt product ID: " . $e->getMessage());
+            }
+            return $product;
+        });
+        return view('admin.products.index', compact('product'));
+    
+    } catch (ModelNotFoundException $e) {
+        Log::error('No products found: ' . $e->getMessage());
+        return redirect()->back()->with('error', 'No products found.');
+    } catch (Exception $e) {
+        Log::error('Error in product listing: ' . $e->getMessage());
+        return redirect()->back()->with('error', 'An error occurred. Please try again later.');
+    }
 
 }
 
 
 public function edit($id)
 {
-    $prod = Product::decryptId($id);
-    $product = Product::find($prod);
-    if($product){
-        return view('admin.products.edit', compact('product','id'));;
-    }else{
-        abort(404);
+    try {
+        $prod = Product::decryptId($id);
+        $product = Product::find($prod);
+
+        if ($product) {
+            return view('admin.products.edit', compact('product', 'id'));
+        } else {
+            return redirect()->route('admin.products.index')->withErrors(['error' => 'Product not found.']);
+        }
+
+    } catch (ModelNotFoundException $e) {
+        return redirect()->route('admin.products.index')->withErrors(['error' => 'Product not found.']);
+    } catch (Exception $e) {
+        return redirect()->route('admin.products.index')->withErrors(['error' => 'An error occurred while loading the product.']);
     }
 }
-
 
 public function update(Request $request, $id)
 {
