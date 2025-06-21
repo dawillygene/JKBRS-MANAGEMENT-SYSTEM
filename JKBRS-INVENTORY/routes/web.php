@@ -8,35 +8,35 @@ Route::get('/', function () {
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('dashboard', function () {
-        return Inertia::render('dashboard');
+        return Inertia::render('dashboard-new');
     })->name('dashboard');
    
     Route::get('/office', function () {
-        return Inertia::render('Office/office');
+        return Inertia::render('Office/office-new');
     })->name('office');
    
     Route::get('/factory', function () {
-        return Inertia::render('factory/factorymain');
+        return Inertia::render('factory/factory-new');
     })->name('factorymain');
    
     Route::get('/inventory', function () {
-        return Inertia::render('Inventory/inventory');
+        return Inertia::render('Inventory/inventory-new');
     })->name('inventory');
 
     Route::get('/sales', function () {
-        return Inertia::render('Sales/sales');
+        return Inertia::render('Sales/sales-new');
     })->name('sales');
 
     Route::get('/reports', function () {
-        return Inertia::render('Reports/reports');
+        return Inertia::render('Reports/reports-new');
     })->name('reports');
    
     Route::get('/user-management', function () {
-        return Inertia::render('UserManagement/user-management');
+        return Inertia::render('UserManagement/user-management-new');
     })->name('user-management');
 
     Route::get('/app-settings', function () {
-        return Inertia::render('AppSettings/app-settings');
+        return Inertia::render('AppSettings/app-settings-new');
     })->name('app-settings');
 
  
