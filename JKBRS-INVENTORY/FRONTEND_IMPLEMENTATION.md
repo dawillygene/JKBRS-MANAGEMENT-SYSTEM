@@ -270,43 +270,151 @@ Route::middleware(['auth', 'verified'])->group(function () {
   - Add monitoring and logging
   - Set up automated deployments
 
-## 🛠️ Development Commands
+## 🔐 ROLE-BASED ACCESS CONTROL IMPLEMENTATION
 
-```bash
-# Start development servers
-npm run dev          # Start Vite dev server
-php artisan serve    # Start Laravel server
+### System Architecture
 
-# Build for production
-npm run build        # Build React assets
-php artisan optimize # Optimize Laravel
+The JKBRS Inventory Management System now implements a comprehensive role-based access control (RBAC) system with multi-tenant architecture:
 
-# Testing
-npm run test         # Run JavaScript tests
-php artisan test     # Run PHP tests
+#### **Office Hierarchy**
+```
+Main Office (JKBRS Head Office)
+├── Regional Offices (Arusha, Mwanza, Dodoma)
+│   ├── Branch 1
+│   ├── Branch 2
+│   └── Branch N
 ```
 
-## 📁 Quick Navigation
+#### **User Roles & Permissions**
 
-### Main Pages
-- Dashboard: http://127.0.0.1:8000/dashboard
-- Factory: http://127.0.0.1:8000/factory
-- Office: http://127.0.0.1:8000/office
-- Inventory: http://127.0.0.1:8000/inventory
-- Sales: http://127.0.0.1:8000/sales
-- Reports: http://127.0.0.1:8000/reports
-- User Management: http://127.0.0.1:8000/user-management
-- Settings: http://127.0.0.1:8000/app-settings
+**1. System Administrator (admin)**
+- Full system access across all offices
+- User management system-wide
+- Global reports and analytics
+- System configuration and settings
+- Budget allocation and oversight
 
-## 🎯 Success Metrics
+**2. Office Manager (office_manager)**
+- Manages regional office operations
+- Employee registration and payroll for region
+- Regional inventory and sales oversight
+- Regional financial reports
+- Manages subordinate branches
 
-✅ **8/8** Major pages implemented  
-✅ **100%** React components functional  
-✅ **0** Build errors  
-✅ **100%** Routes accessible  
-✅ **15+** Reusable UI components created  
-✅ **Chart.js** Successfully integrated  
-✅ **Responsive** Design implemented  
+**3. Branch Manager (branch_manager)**
+- Manages specific branch operations
+- Branch employee management
+- Branch inventory and sales
+- Branch-level reports
+- Local budget management
+
+**4. Specialized Staff Roles**
+- **Cashier**: Sales transactions, payment processing
+- **Inventory Clerk**: Stock management, inventory updates
+- **Sales Person**: Customer relations, sales creation
+- **Accountant**: Financial records, payroll processing
+- **Employee**: Basic profile and payroll access
+
+#### **Multi-Tenant Data Isolation**
+- Each office manages its own data
+- Hierarchical access (main → regional → branch)
+- Office-specific inventory, sales, and employee records
+- Secured cross-office data sharing
+
+### **Currency & Localization**
+- **Primary Currency**: Tanzanian Shillings (Tsh)
+- All financial data displayed in Tsh format
+- Proper number formatting for East African standards
+- Sample budgets and salaries in realistic Tsh amounts
+
+### **Database Structure**
+
+#### **Core Tables**
+- `roles` - User role definitions and permissions
+- `offices` - Office hierarchy and management
+- `users` - Extended user profiles with roles and offices
+- `inventory_items` - Office-specific inventory
+- `sales_transactions` - Multi-office sales tracking
+- `transaction_items` - Detailed transaction records
+- `payroll` - Office-based payroll management
+
+#### **Sample Data Included**
+- **Main Office**: Dar es Salaam (50M Tsh budget)
+- **Regional Offices**: 
+  - Arusha (15M Tsh budget)
+  - Mwanza (12M Tsh budget) 
+  - Dodoma (10M Tsh budget)
+- **Branches**: 5 branches across regions (2-3M Tsh budgets)
+- **Users**: Complete staff hierarchy with realistic salaries
+- **Login Credentials**: All users use `password123`
+
+### **Frontend Implementation**
+
+#### **New Components**
+- `AuthContext` - Authentication and permission management
+- `PermissionGate` - Component-level access control
+- `dashboard-role-based.tsx` - Multi-role dashboard
+- Role-specific UI components and layouts
+
+#### **Permission Gates**
+```tsx
+// Component-level access control
+<AdminOnly>
+  <SystemSettings />
+</AdminOnly>
+
+<ManagerOnly>
+  <EmployeeManagement />
+</ManagerOnly>
+
+<InventoryAccess>
+  <StockManagement />
+</InventoryAccess>
+```
+
+#### **Key Features**
+- Dynamic UI based on user role
+- Office-specific data filtering
+- Hierarchical navigation
+- Currency formatting (Tsh)
+- Permission-based feature access
+
+### **Sample Login Accounts**
+
+```
+Admin Account:
+Email: admin@jkbrs.co.tz
+Password: password123
+Role: System Administrator
+Office: Main Office
+
+Office Manager (Arusha):
+Email: mary.mwema@jkbrs.co.tz
+Password: password123
+Role: Office Manager
+Office: Arusha Regional
+
+Branch Manager:
+Email: james.kijana@jkbrs.co.tz
+Password: password123
+Role: Branch Manager
+Office: Arusha Branch 1
+
+Cashier:
+Email: cashier1@jkbrs.co.tz
+Password: password123
+Role: Cashier
+Office: Arusha Branch 1
+```
+
+### **Next Implementation Steps**
+
+1. **API Controllers**: Create role-aware controllers
+2. **Middleware Integration**: Apply permission middleware to routes
+3. **Real-time Features**: Office-specific notifications
+4. **Reporting System**: Multi-level reporting structure
+5. **Employee Self-Service**: Profile and payroll access
+6. **Mobile App**: Field staff mobile access
 
 ---
 
