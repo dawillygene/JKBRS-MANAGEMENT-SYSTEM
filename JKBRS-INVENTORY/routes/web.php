@@ -5,6 +5,7 @@ use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\EmployeeDocumentController;
 use App\Http\Controllers\EmployeePerformanceController;
 use App\Http\Controllers\EmployeeTrainingController;
+use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
     return Inertia::render('welcome');
@@ -72,9 +73,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         return Inertia::render('Reports/reports-new');
     })->name('reports');
    
-    Route::get('/user-management', function () {
-        return Inertia::render('UserManagement/user-management-new');
-    })->name('user-management');
+    Route::get('/user-management', [UserController::class, 'index'])->name('user-management');
 
     Route::get('/app-settings', function () {
         return Inertia::render('AppSettings/app-settings-new');
@@ -118,6 +117,13 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('employees/{employee}/training/{training}/edit', [EmployeeTrainingController::class, 'edit'])->name('employees.training.edit');
     Route::put('employees/{employee}/training/{training}', [EmployeeTrainingController::class, 'update'])->name('employees.training.update');
     Route::delete('employees/{employee}/training/{training}', [EmployeeTrainingController::class, 'destroy'])->name('employees.training.destroy');
+
+    // User Management Routes
+    Route::resource('users', UserController::class);
+    Route::post('users/{user}/transfer', [UserController::class, 'transfer'])->name('users.transfer');
+    Route::post('users/bulk-action', [UserController::class, 'bulkAction'])->name('users.bulk-action');
+    Route::put('users/{user}/password', [UserController::class, 'updatePassword'])->name('users.update-password');
+    Route::get('users/{user}/activity', [UserController::class, 'activityLogs'])->name('users.activity');
 
 });
 
