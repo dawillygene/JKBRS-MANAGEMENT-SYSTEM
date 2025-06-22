@@ -13,22 +13,42 @@ class Office extends Model
 
     protected $fillable = [
         'name',
+        'office_code',
+        'office_type',
+        'parent_office_id',
+        'location',
+        'contact_phone',
+        'contact_email',
+        'manager_id',
+        'budget_allocated',
+        'budget_spent',
+        'budget_period',
+        'budget_notes',
+        'description',
+        'status',
+        'opening_date',
+        'closing_date',
+        'settings',
+        // Legacy fields for backward compatibility
         'code',
         'type',
-        'parent_office_id',
         'address',
         'phone',
         'email',
         'manager_name',
         'budget_allocation',
-        'settings',
         'is_active',
     ];
 
     protected $casts = [
-        'budget_allocation' => 'decimal:2',
+        'budget_allocated' => 'decimal:2',
+        'budget_spent' => 'decimal:2',
+        'opening_date' => 'date',
+        'closing_date' => 'date',
         'settings' => 'array',
         'is_active' => 'boolean',
+        // Legacy field for backward compatibility
+        'budget_allocation' => 'decimal:2',
     ];
 
     public function parentOffice(): BelongsTo
@@ -44,6 +64,16 @@ class Office extends Model
     public function users(): HasMany
     {
         return $this->hasMany(User::class);
+    }
+
+    public function employees(): HasMany
+    {
+        return $this->hasMany(Employee::class);
+    }
+
+    public function manager(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'manager_id');
     }
 
     public function inventoryItems(): HasMany
@@ -99,5 +129,35 @@ class Office extends Model
             return [$officeId];
         }
         return $office->getAccessibleOfficeIds();
+    }
+
+    // Get child office IDs recursively
+    public static function getChildOfficeIds($officeId): array
+    {
+        $office = self::find($officeId);
+        if (!$office) {
+            return [];
+        }
+        
+        $childIds = [];
+        foreach ($office->childOffices as $child) {
+            $childIds[] = $child->id;
+            $childIds = array_merge($childIds, self::getChildOfficeIds($child->id));
+        }
+        
+        return $childIds;
+    }
+
+    // Get available office types
+    public static function getOfficeTypes(): array
+    {
+        return [
+            'headquarters',
+            'regional',
+            'branch',
+            'warehouse',
+            'retail',
+            'service_center',
+        ];
     }
 }

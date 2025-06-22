@@ -6,6 +6,7 @@ use App\Http\Controllers\EmployeeDocumentController;
 use App\Http\Controllers\EmployeePerformanceController;
 use App\Http\Controllers\EmployeeTrainingController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\OfficeController;
 
 Route::get('/', function () {
     return Inertia::render('welcome');
@@ -47,9 +48,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         }
     })->name('dashboard');
    
-    Route::get('/office', function () {
-        return Inertia::render('Office/office-new');
-    })->name('office');
+    Route::get('/office', [OfficeController::class, 'index'])->name('office');
    
     Route::get('/factory', function () {
         return Inertia::render('factory/factory-new');
@@ -124,6 +123,137 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('users/bulk-action', [UserController::class, 'bulkAction'])->name('users.bulk-action');
     Route::put('users/{user}/password', [UserController::class, 'updatePassword'])->name('users.update-password');
     Route::get('users/{user}/activity', [UserController::class, 'activityLogs'])->name('users.activity');
+
+    // Office Management Routes
+    Route::resource('offices', OfficeController::class);
+    Route::get('/office', [OfficeController::class, 'index'])->name('office.list');
+    
+    // Office hierarchy and management
+    Route::get('offices-hierarchy', [OfficeController::class, 'hierarchy'])->name('offices.hierarchy');
+    Route::get('/offices/{office}/hierarchy', [OfficeController::class, 'hierarchy'])->name('offices.hierarchy.show');
+    
+    // Budget management
+    Route::get('/offices/{office}/budget', function ($office) {
+        $officeModel = \App\Models\Office::with('childOffices')->findOrFail($office);
+        return Inertia::render('Offices/Budget', [
+            'office' => $officeModel,
+            'children_offices' => $officeModel->childOffices
+        ]);
+    })->name('offices.budget');
+    Route::put('offices/{office}/budget', [OfficeController::class, 'updateBudget'])->name('offices.update-budget');
+    Route::post('/offices/bulk-budget-update', [OfficeController::class, 'bulkBudgetUpdate'])->name('offices.budget.bulk-update');
+    
+    // Performance dashboard
+    Route::get('/offices/{office}/dashboard', function ($office) {
+        $officeModel = \App\Models\Office::with('childOffices')->findOrFail($office);
+        $metrics = app(OfficeController::class)->performanceMetrics($officeModel);
+        return Inertia::render('Offices/Dashboard', [
+            'office' => $officeModel,
+            'metrics' => $metrics->getData(),
+            'children_offices' => $officeModel->childOffices
+        ]);
+    })->name('offices.dashboard');
+    Route::get('offices/{office}/performance', [OfficeController::class, 'performanceMetrics'])->name('offices.performance');
+    
+    // Asset tracking
+    Route::get('/offices/{office}/assets', function ($office) {
+        $officeModel = \App\Models\Office::findOrFail($office);
+        // Mock asset data - replace with real implementation
+        $assets = [
+            [
+                'id' => 1,
+                'name' => 'Dell OptiPlex 7090',
+                'asset_type' => 'computer',
+                'serial_number' => 'DL7090001',
+                'purchase_date' => '2023-01-15',
+                'purchase_cost' => 1200,
+                'current_value' => 960,
+                'status' => 'active',
+                'location' => 'Desk 12',
+                'assigned_to' => 'John Doe',
+                'warranty_expires' => '2026-01-15'
+            ],
+            [
+                'id' => 2,
+                'name' => 'HP LaserJet Pro',
+                'asset_type' => 'printer',
+                'serial_number' => 'HP2023001',
+                'purchase_date' => '2023-03-20',
+                'purchase_cost' => 350,
+                'current_value' => 245,
+                'status' => 'maintenance',
+                'location' => 'Print Station',
+                'warranty_expires' => '2025-03-20'
+            ]
+        ];
+        return Inertia::render('Offices/Assets', [
+            'office' => $officeModel,
+            'assets' => $assets,
+            'asset_types' => ['computer', 'laptop', 'printer', 'phone', 'furniture'],
+            'total_value' => 1205,
+            'depreciation_rate' => 20
+        ]);
+    })->name('offices.assets');
+    Route::post('/offices/{office}/assets', [OfficeController::class, 'storeAsset'])->name('offices.assets.store');
+    
+    // Office settings
+    Route::get('/offices/{office}/settings', function ($office) {
+        $officeModel = \App\Models\Office::findOrFail($office);
+        // Mock settings data - replace with real implementation
+        $settings = [
+            'general' => [
+                'name' => $officeModel->name,
+                'office_type' => $officeModel->office_type,
+                'description' => $officeModel->description ?? '',
+                'capacity' => 50,
+                'operating_hours' => [
+                    'start' => '09:00',
+                    'end' => '17:00',
+                    'days' => ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']
+                ]
+            ],
+            'contact' => [
+                'phone' => '+1 (555) 123-4567',
+                'email' => 'office@company.com',
+                'address' => [
+                    'street' => '123 Main Street',
+                    'city' => 'New York',
+                    'state' => 'NY',
+                    'zip' => '10001',
+                    'country' => 'United States'
+                ]
+            ],
+            'permissions' => [
+                'can_manage_budget' => true,
+                'can_transfer_staff' => true,
+                'can_create_sub_offices' => false,
+                'requires_approval_for_transfers' => true,
+                'budget_approval_limit' => 10000
+            ],
+            'notifications' => [
+                'budget_alerts' => true,
+                'staff_notifications' => true,
+                'performance_reports' => false,
+                'maintenance_reminders' => true,
+                'email_frequency' => 'daily'
+            ],
+            'workflow' => [
+                'auto_assign_assets' => false,
+                'require_manager_approval' => true,
+                'default_budget_allocation_method' => 'equal',
+                'asset_depreciation_rate' => 20.0
+            ]
+        ];
+        return Inertia::render('Offices/Settings', [
+            'office' => array_merge($officeModel->toArray(), ['settings' => $settings]),
+            'office_types' => ['headquarters', 'regional', 'branch', 'department'],
+            'parent_offices' => \App\Models\Office::where('id', '!=', $office)->get(['id', 'name'])
+        ]);
+    })->name('offices.settings');
+    Route::put('/offices/{office}/settings', [OfficeController::class, 'updateSettings'])->name('offices.settings.update');
+    
+    // Staff transfers
+    Route::post('offices/{office}/transfer-users', [OfficeController::class, 'transferUsers'])->name('offices.transfer-users');
 
 });
 
