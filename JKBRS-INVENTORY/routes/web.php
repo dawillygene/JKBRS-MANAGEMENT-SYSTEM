@@ -1,6 +1,10 @@
 <?php
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\EmployeeDocumentController;
+use App\Http\Controllers\EmployeePerformanceController;
+use App\Http\Controllers\EmployeeTrainingController;
 
 Route::get('/', function () {
     return Inertia::render('welcome');
@@ -85,6 +89,35 @@ Route::middleware(['auth', 'verified'])->group(function () {
         }
         return 'User not found';
     })->name('test-login');
+
+    // Employee Management Routes
+    Route::resource('employees', EmployeeController::class);
+    Route::post('employees/{employee}/transfer', [EmployeeController::class, 'transfer'])->name('employees.transfer');
+    Route::get('employees-hierarchy', [EmployeeController::class, 'hierarchy'])->name('employees.hierarchy');
+    
+    // Employee Documents Routes
+    Route::get('employees/{employee}/documents', [EmployeeDocumentController::class, 'index'])->name('employees.documents.index');
+    Route::post('employees/{employee}/documents', [EmployeeDocumentController::class, 'store'])->name('employees.documents.store');
+    Route::get('employees/{employee}/documents/{document}/download', [EmployeeDocumentController::class, 'download'])->name('employees.documents.download');
+    Route::delete('employees/{employee}/documents/{document}', [EmployeeDocumentController::class, 'destroy'])->name('employees.documents.destroy');
+    
+    // Employee Performance Routes
+    Route::get('employees/{employee}/performance', [EmployeePerformanceController::class, 'index'])->name('employees.performance.index');
+    Route::get('employees/{employee}/performance/create', [EmployeePerformanceController::class, 'create'])->name('employees.performance.create');
+    Route::post('employees/{employee}/performance', [EmployeePerformanceController::class, 'store'])->name('employees.performance.store');
+    Route::get('employees/{employee}/performance/{performance}', [EmployeePerformanceController::class, 'show'])->name('employees.performance.show');
+    Route::get('employees/{employee}/performance/{performance}/edit', [EmployeePerformanceController::class, 'edit'])->name('employees.performance.edit');
+    Route::put('employees/{employee}/performance/{performance}', [EmployeePerformanceController::class, 'update'])->name('employees.performance.update');
+    Route::delete('employees/{employee}/performance/{performance}', [EmployeePerformanceController::class, 'destroy'])->name('employees.performance.destroy');
+    
+    // Employee Training Routes
+    Route::get('employees/{employee}/training', [EmployeeTrainingController::class, 'index'])->name('employees.training.index');
+    Route::get('employees/{employee}/training/create', [EmployeeTrainingController::class, 'create'])->name('employees.training.create');
+    Route::post('employees/{employee}/training', [EmployeeTrainingController::class, 'store'])->name('employees.training.store');
+    Route::get('employees/{employee}/training/{training}', [EmployeeTrainingController::class, 'show'])->name('employees.training.show');
+    Route::get('employees/{employee}/training/{training}/edit', [EmployeeTrainingController::class, 'edit'])->name('employees.training.edit');
+    Route::put('employees/{employee}/training/{training}', [EmployeeTrainingController::class, 'update'])->name('employees.training.update');
+    Route::delete('employees/{employee}/training/{training}', [EmployeeTrainingController::class, 'destroy'])->name('employees.training.destroy');
 
 });
 

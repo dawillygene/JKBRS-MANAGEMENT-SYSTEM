@@ -14,6 +14,7 @@ import {
     LineChart,
     BarChart2,
     Users,
+    UserCheck,
     Settings,
     Globe,
     LifeBuoy,
@@ -56,6 +57,11 @@ const mainNavItems: NavItem[] = [
         title: 'User Management',
         href: '/user-management',
         icon: Users, 
+    },
+    {
+        title: 'Employee Management',
+        href: '/employees',
+        icon: UserCheck, 
     },
     {
         title: 'App Settings',

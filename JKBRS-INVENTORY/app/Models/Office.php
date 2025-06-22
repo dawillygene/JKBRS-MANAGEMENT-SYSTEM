@@ -84,4 +84,20 @@ class Office extends Model
     {
         return 'Tsh ' . number_format($this->budget_allocation, 2);
     }
+
+    // Get all office IDs that this office can access (self and subordinates)
+    public function getAccessibleOfficeIds(): array
+    {
+        return $this->getAllSubordinateOffices()->pluck('id')->toArray();
+    }
+
+    // Static method to get all office IDs for a given office
+    public static function getAllOfficeIds($officeId): array
+    {
+        $office = self::find($officeId);
+        if (!$office) {
+            return [$officeId];
+        }
+        return $office->getAccessibleOfficeIds();
+    }
 }
