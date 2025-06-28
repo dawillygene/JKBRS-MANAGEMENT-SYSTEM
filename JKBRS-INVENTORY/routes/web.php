@@ -7,6 +7,14 @@ use App\Http\Controllers\EmployeePerformanceController;
 use App\Http\Controllers\EmployeeTrainingController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\OfficeController;
+use App\Http\Controllers\InventoryItemController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProductVariantController;
+use App\Http\Controllers\SupplierController;
+use App\Http\Controllers\WarehouseController;
+use App\Http\Controllers\StockMovementController;
+use App\Http\Controllers\StockAdjustmentController;
 
 Route::get('/', function () {
     return Inertia::render('welcome');
@@ -254,6 +262,45 @@ Route::middleware(['auth', 'verified'])->group(function () {
     
     // Staff transfers
     Route::post('offices/{office}/transfer-users', [OfficeController::class, 'transferUsers'])->name('offices.transfer-users');
+
+    // ========================================
+    // INVENTORY MANAGEMENT ROUTES
+    // ========================================
+    
+    // Inventory Items
+    Route::resource('inventory', InventoryItemController::class)->names([
+        'index' => 'inventory.index',
+        'create' => 'inventory.create',
+        'store' => 'inventory.store',
+        'show' => 'inventory.show',
+        'edit' => 'inventory.edit',
+        'update' => 'inventory.update',
+        'destroy' => 'inventory.destroy'
+    ]);
+    Route::get('inventory/low-stock', [InventoryItemController::class, 'lowStock'])->name('inventory.low-stock');
+    Route::patch('inventory/{inventoryItem}/adjust-quantity', [InventoryItemController::class, 'adjustQuantity'])->name('inventory.adjust-quantity');
+
+    // Categories
+    Route::resource('categories', CategoryController::class);
+
+    // Products
+    Route::resource('products', ProductController::class);
+
+    // Product Variants
+    Route::resource('product-variants', ProductVariantController::class);
+
+    // Suppliers
+    Route::resource('suppliers', SupplierController::class);
+
+    // Warehouses
+    Route::resource('warehouses', WarehouseController::class);
+
+    // Stock Movements
+    Route::resource('stock-movements', StockMovementController::class)->only(['index', 'show']);
+
+    // Stock Adjustments
+    Route::resource('stock-adjustments', StockAdjustmentController::class);
+    Route::get('stock-adjustments/summary', [StockAdjustmentController::class, 'summary'])->name('stock-adjustments.summary');
 
 });
 
