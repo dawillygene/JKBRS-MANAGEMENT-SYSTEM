@@ -22,3 +22,12 @@ yarn-error.log
 /.nova
 /.vscode
 /.zed
+
+# Documentation and development files
+/documentation/
+*.md
+*layout*.html
+*requirements*
+*progress*
+*roadmap*
+*checklist*
